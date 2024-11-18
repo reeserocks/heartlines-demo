@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dl74cpy2nkpcl"
+path="res://.godot/imported/Confronting The Man In Black.mp3-38dab0e6bce0525ae4a30faf4590a1d6.mp3str"
+
+[deps]
+
+source_file="res://assets/TemplateAssets/Assets/Music/Wild West Music - Harvey Carman/Wild West Music - Harvey Carman/MP3/Confronting The Man In Black.mp3"
+dest_files=["res://.godot/imported/Confronting The Man In Black.mp3-38dab0e6bce0525ae4a30faf4590a1d6.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

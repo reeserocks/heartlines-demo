@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://c12wxi0d5en7w"
+path="res://.godot/imported/Fetlocks In The Wind.ogg-b4b9c7d74d05c199bca31eae6cd78cb1.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/TemplateAssets/Assets/FX/Music/Wild West Music - Harvey Carman/Wild West Music - Harvey Carman/OGG/Fetlocks In The Wind.ogg"
+dest_files=["res://.godot/imported/Fetlocks In The Wind.ogg-b4b9c7d74d05c199bca31eae6cd78cb1.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
