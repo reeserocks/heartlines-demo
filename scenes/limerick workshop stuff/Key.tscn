@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://5ot3op4w1yuc"]
+
+[ext_resource type="Texture2D" uid="uid://dcear4ki2gkd6" path="res://assets/MyAssets/Maps/workshop int/key.png" id="1_em2l6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xgc36"]
+radius = 101.607
+
+[node name="Locker" type="Area2D"]
+
+[node name="Key" type="Sprite2D" parent="."]
+texture = ExtResource("1_em2l6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_xgc36")

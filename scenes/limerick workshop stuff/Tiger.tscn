@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://f13hmw5qsxt4"]
+
+[ext_resource type="Texture2D" uid="uid://e5vijwua7msb" path="res://assets/MyAssets/Maps/workshop int/tiger.png" id="1_mxpe8"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jqhmj"]
+radius = 279.0
+height = 558.0
+
+[node name="Locker" type="StaticBody2D"]
+
+[node name="Tiger" type="Sprite2D" parent="."]
+texture = ExtResource("1_mxpe8")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-50, -115, 14, -23, 18, 110, 149, 258, 277, 109, 345, -149)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(101, 18)
+shape = SubResource("CapsuleShape2D_jqhmj")

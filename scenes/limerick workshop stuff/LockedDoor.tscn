@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://ck3dmluf3tmap"]
+
+[ext_resource type="Texture2D" uid="uid://xrh8gwktuoa2" path="res://assets/MyAssets/Maps/workshop int/corrodedDoor.png" id="1_7yecu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u5ynt"]
+size = Vector2(238, 194.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f5req"]
+size = Vector2(238, 242)
+
+[node name="Locker" type="StaticBody2D"]
+
+[node name="CorrodedDoor" type="Sprite2D" parent="."]
+texture = ExtResource("1_7yecu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -71.25)
+shape = SubResource("RectangleShape2D_u5ynt")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 145)
+shape = SubResource("RectangleShape2D_f5req")

@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://bxxyoyiuusmv0"]
+
+[ext_resource type="Texture2D" uid="uid://cnpeiw8yu7p1i" path="res://assets/MyAssets/Maps/workshop int/robotArm.png" id="1_7wl1d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5pxjj"]
+size = Vector2(188, 108)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qlkk8"]
+radius = 150.213
+
+[node name="Locker" type="StaticBody2D"]
+
+[node name="RobotArm" type="Sprite2D" parent="."]
+position = Vector2(-16, -67)
+texture = ExtResource("1_7wl1d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-14, -102)
+shape = SubResource("RectangleShape2D_5pxjj")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-3, -72)
+shape = SubResource("CircleShape2D_qlkk8")

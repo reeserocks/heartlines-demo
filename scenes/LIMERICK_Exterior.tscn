@@ -1,0 +1,96 @@
+[gd_scene load_steps=10 format=3 uid="uid://civ8vcl0o4pox"]
+
+[ext_resource type="Texture2D" uid="uid://cueg1vph3f1yq" path="res://assets/MyAssets/Maps/Limerick (ext)/limerick_map.png" id="1_vp0fj"]
+[ext_resource type="PackedScene" uid="uid://qaheiif14eto" path="res://scenes/BaseCollectibleObj.tscn" id="2_o27a8"]
+[ext_resource type="PackedScene" uid="uid://bldn7fkggpdgb" path="res://scenes/CharacterManager.tscn" id="3_uatgl"]
+[ext_resource type="PackedScene" uid="uid://b7xwbtfhhi18w" path="res://scenes/Tree.tscn" id="4_lf88e"]
+[ext_resource type="PackedScene" uid="uid://clk0oe2m5n1se" path="res://scenes/InventoryUI.tscn" id="5_fw38d"]
+[ext_resource type="Script" path="res://scripts/ChangeScene_EtI.gd" id="6_hv4fs"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_st5sp"]
+resource_name = "limerickExt"
+texture = ExtResource("1_vp0fj")
+texture_region_size = Vector2i(4936, 3240)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-2537.1, -199.404, -2166.58, -185.262, -2118.49, -80.6102, -1951.61, 29.6985, -1887.6, 252.63, -1756.45, 318.198, -1674.43, 425.678, -1442.5, 581.242, -1581.09, 844.286, -1547.15, 1013.99, -1586, 1077, -1986, 1079, -1986, 1239, -1354, 1245, -1244, 1245, -1124, 1179, -1052, 1099, -1148, 1075, -1222, 997, -1254, 921, -1256, 625, -1092, 691, -1074, 925, -970, 929, -984, 1073, -922, 1131, -790, 1287, -568, 1533, -39.5979, 1583.92, 825.901, 1476.44, 1549.98, 1261.48, 1800, 1091, 1854.25, 879.526, 1898, 709, 2524, 493, 2488, 1665, 452, 1647, -2592, 1631)
+0:0/0/physics_layer_0/polygon_1/points = PackedVector2Array(-2008, -553, -1878, -489, -1956, -411, -1944, -365, -1794, -295, -1348, -233, -1240, -209, -778, 97, -1062, 25, -1362, 43, -1446, 13, -1636, 27, -1788, -31, -1882, -129, -1944, -217)
+0:0/0/physics_layer_0/polygon_2/points = PackedVector2Array(-1980, -573, -1854, -585, -1904, -619, -1926, -669, -1970, -723, -2014, -735, -2060, -745, -2114, -799, -2162, -845, -2026, -811, -1960, -805, -1724, -801, -1614, -819, -1536, -845, -1478, -875, -1378, -977, -1440, -1007, -1419.32, -1181.14, -1364, -1647, -2522, -1689, -2498, -239, -2500, -207, -2414, -193, -2282, -275, -2352, -347, -1972, -351)
+0:0/0/physics_layer_0/polygon_3/points = PackedVector2Array(-370, 1221, -343, 1217.5, -344, 1114.5, -296, 1109.5, -297, 924.5, -405, 925.5, -406, 1112.5, -364, 1110.5)
+0:0/0/physics_layer_0/polygon_4/points = PackedVector2Array(-210, 1153.5, -101, 1310.5, 518, 1237.5, 809, 1204.5, 932, 1142.5, 1178, 1047.5, 1899, 728.5, 2283, 581.5, 1976, 183.5, 1984, -645, 1762, -717, 1500, -699, 1360, -693, 1294, -699, 1268, -681, 1246, -669, 1144, -657, 1086, -643, 1028, -623, 934, -505, 892, -441, 836, -345, 774, -259, 714, -179, 228, 45, 228, 699, 126, 711, 102, 533, 69, 522.5, 22, 528.5, 38, 713.5, -9, 677.5, -58, 687.5, -79, 719.5, -115, 724.5, -177, 548.5, -228, 556.5, -180, 736.5, -220, 734.5)
+0:0/0/physics_layer_0/polygon_5/points = PackedVector2Array(-934.795, -1178.75, -1419.87, -1175.92, -1373.2, -1665.24, 2524.37, -1707.66, 2516, -472.5, 1369, -642.5, 917.825, -912.875, 568.514, -1026.01, 568.514, -871.863, 534.573, -870.448, 534.573, -1054.3, 206.475, -1116.52, 203.647, -876.105, -575.585, -869.034, -576.999, -972.272, -830.143, -973.686, -835.8, -871.863, -930.553, -870.449)
+
+[sub_resource type="TileSet" id="TileSet_aqgy6"]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_st5sp")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_aalec"]
+radius = 149.111
+
+[node name="LIMERICK_Exterior" type="Node2D"]
+
+[node name="Map" type="TileMapLayer" parent="."]
+position = Vector2(0, 4)
+tile_map_data = PackedByteArray(0, 0, 76, 0, 239, 255, 0, 0, 0, 0, 0, 0, 0, 0)
+tile_set = SubResource("TileSet_aqgy6")
+
+[node name="BaseCollectibleObj" parent="." instance=ExtResource("2_o27a8")]
+position = Vector2(1726, 504)
+
+[node name="BaseCollectibleObj2" parent="." instance=ExtResource("2_o27a8")]
+position = Vector2(1583, 221)
+
+[node name="CharacterManager" parent="." instance=ExtResource("3_uatgl")]
+position = Vector2(957, -540)
+
+[node name="Tree" parent="." instance=ExtResource("4_lf88e")]
+position = Vector2(925, -331)
+
+[node name="Tree3" parent="." instance=ExtResource("4_lf88e")]
+position = Vector2(197, -963)
+
+[node name="Tree2" parent="." instance=ExtResource("4_lf88e")]
+position = Vector2(34, -921)
+
+[node name="Tree4" parent="." instance=ExtResource("4_lf88e")]
+position = Vector2(396, -845)
+
+[node name="Tree5" parent="." instance=ExtResource("4_lf88e")]
+position = Vector2(823, -1403)
+
+[node name="Tree6" parent="." instance=ExtResource("4_lf88e")]
+position = Vector2(2942, -1035)
+
+[node name="Tree7" parent="." instance=ExtResource("4_lf88e")]
+position = Vector2(312, -2138)
+
+[node name="Tree10" parent="." instance=ExtResource("4_lf88e")]
+position = Vector2(4490, 96)
+
+[node name="Tree9" parent="." instance=ExtResource("4_lf88e")]
+position = Vector2(4315, 270)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Inv_UI" parent="CanvasLayer" instance=ExtResource("5_fw38d")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -214.5
+offset_top = -155.0
+offset_right = 214.5
+offset_bottom = 155.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ChangeScene" type="Area2D" parent="."]
+script = ExtResource("6_hv4fs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChangeScene"]
+position = Vector2(1738, -1382)
+shape = SubResource("CircleShape2D_aalec")
+
+[connection signal="body_entered" from="ChangeScene" to="ChangeScene" method="_on_body_entered"]
+[connection signal="body_exited" from="ChangeScene" to="ChangeScene" method="_on_body_exited"]

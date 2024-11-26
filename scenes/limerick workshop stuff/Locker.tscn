@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://b1w6ddnsvst5f"]
+
+[ext_resource type="Texture2D" uid="uid://glof0y2rpty0" path="res://assets/MyAssets/Maps/workshop int/locker.png" id="1_pgatt"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jqhmj"]
+radius = 88.0
+height = 350.0
+
+[node name="Locker" type="StaticBody2D"]
+
+[node name="Locker" type="Sprite2D" parent="."]
+texture = ExtResource("1_pgatt")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(56, -293)
+shape = SubResource("CapsuleShape2D_jqhmj")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-106, -460, 103, -460, 104, -206, -13, -207, -12, 451, -103, 448)

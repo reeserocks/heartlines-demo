@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://5030ktxsooa7"]
+
+[ext_resource type="Texture2D" uid="uid://benji1vciwr4v" path="res://assets/MyAssets/Maps/workshop int/keyTable.png" id="1_j6xqk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pu7qm"]
+size = Vector2(149, 260)
+
+[node name="Locker" type="StaticBody2D"]
+
+[node name="KeyTable" type="Sprite2D" parent="."]
+texture = ExtResource("1_j6xqk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2.5, 1)
+shape = SubResource("RectangleShape2D_pu7qm")

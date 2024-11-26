@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://daekftnwsdsid"]
+
+[ext_resource type="Texture2D" uid="uid://d0qcw74pc34gq" path="res://assets/MyAssets/Maps/workshop int/gears.png" id="1_hcam0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xgc36"]
+radius = 77.3175
+
+[node name="Locker" type="Area2D"]
+
+[node name="Gears" type="Sprite2D" parent="."]
+texture = ExtResource("1_hcam0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_xgc36")

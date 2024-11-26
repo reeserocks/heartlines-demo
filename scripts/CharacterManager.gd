@@ -17,7 +17,7 @@ var current_state: CharacterState = CharacterState.TESS
 @export var ai_speed = 30
 @export var ai_move_chance = 0.5  # 50% chance to move
 @export var ai_decision_interval = 2.0  # Decide every 2 seconds
-@export var min_separation_radius = 30.0  # Minimum distance between characters
+@export var min_separation_radius = 10.0  # Minimum distance between characters
 @export var max_ai_distance_from_player = 100.0  # Max distance the AI can be from the active player
 
 # ACTIVE AND INACTIVE CHARACTERS
@@ -86,8 +86,14 @@ func _switch_to_character(character):
 
 func _update_active_character():
 	for character in [tess, jay, charlie]:
+		var is_active = character == active_character
 		character.set_process(character == active_character)
 		character.set_visible(true)
+		
+		# Update Camera2D for  active character
+		var camera = character.get_node("Camera2D")
+		if camera:
+			camera.enabled = is_active
 
 # PROCESS INACTIVE AI
 func _process_inactive_ai(delta):
@@ -120,7 +126,7 @@ func _move_character(character, delta):
 	var direction = (target_position - character.global_position).normalized()
 	character.move_and_animate(direction, ai_speed * delta)
 
-# AI MOVE CONDITION: Check if AI is far enough from player
+# AI MOVE CONDITION 
 func _can_move(character):
 	# AI can move only if it is not too close to the player
 	return active_character.global_position.distance_to(character.global_position) > max_ai_distance_from_player

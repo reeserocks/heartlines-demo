@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://dqnyny36kkgp3"]
+
+[ext_resource type="Texture2D" uid="uid://bpgbj1gw2cov7" path="res://assets/MyAssets/Maps/workshop int/pcSetup.png" id="1_radvn"]
+
+[node name="Locker" type="StaticBody2D"]
+
+[node name="PcSetup" type="Sprite2D" parent="."]
+texture = ExtResource("1_radvn")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-167, 352, -100, 354, -100, -145, 171, -141, 170, -349, -174, -354)

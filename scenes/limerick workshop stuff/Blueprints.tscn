@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dadmdvhmu2t1v"]
+
+[ext_resource type="Texture2D" uid="uid://cvnywbltpao8p" path="res://assets/MyAssets/Maps/workshop int/blueprints.png" id="1_3xpyv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xgc36"]
+radius = 166.589
+
+[node name="Locker" type="Area2D"]
+
+[node name="Blueprints" type="Sprite2D" parent="."]
+texture = ExtResource("1_3xpyv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_xgc36")

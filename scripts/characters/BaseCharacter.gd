@@ -1,11 +1,14 @@
 ### BaseCharacter.gd
 extends CharacterBody2D
 
+class_name Player
+
 # NODE REFERENCES
 @onready var animation_sprite = $AnimatedSprite2D
 
-# CHARACTER-SPECIFIC IDENTIFIER
+# VARIABLE EXPORT
 @export var character_name: String = "base"
+@export var inv: Inv
 
 # UPDATED THROUGHOUT GAME STATE
 var new_direction = Vector2(0,1) #only move one space
@@ -53,3 +56,6 @@ func player_animations(direction: Vector2):
 func use_ability():
 	# base implementation does nothing; to be overridden by child classes
 	pass
+
+func collect(item):
+	inv.insert(item)

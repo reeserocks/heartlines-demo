@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://b7xwbtfhhi18w"]
+
+[ext_resource type="Texture2D" uid="uid://dp2pnkbjej6sn" path="res://assets/MyAssets/Maps/Limerick (ext)/tree.png" id="1_7sfij"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vts5o"]
+size = Vector2(153.27, 96.94)
+
+[node name="Tree" type="StaticBody2D"]
+scale = Vector2(0.763359, 0.763359)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_7sfij")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(21.615, 188.64)
+shape = SubResource("RectangleShape2D_vts5o")
