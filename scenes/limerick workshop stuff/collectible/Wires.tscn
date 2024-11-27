@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://dwweme2ydb2ud"]
+
+[ext_resource type="Script" path="res://scripts/items/collectible/Wires.gd" id="1_d10x2"]
+[ext_resource type="Script" path="res://scripts/inventory/InventoryItem.gd" id="2_yrrcv"]
+[ext_resource type="Texture2D" uid="uid://mm2mjo7w2idk" path="res://assets/TemplateAssets/Assets/Icons/armor_01b.png" id="3_046nv"]
+
+[sub_resource type="Resource" id="Resource_aspgt"]
+script = ExtResource("2_yrrcv")
+name = "Wires"
+texture = ExtResource("3_046nv")
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tdrt7"]
+radius = 52.0
+height = 280.0
+
+[node name="Wires" type="Area2D" groups=["collectible"]]
+script = ExtResource("1_d10x2")
+item = SubResource("Resource_aspgt")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(30.625, 30.625)
+scale = Vector2(7.04688, 7.04688)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(26, 29)
+shape = SubResource("CapsuleShape2D_tdrt7")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

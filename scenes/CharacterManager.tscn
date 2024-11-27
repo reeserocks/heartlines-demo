@@ -1344,21 +1344,6 @@ animations = [{
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_iflvh"]
 height = 32.0
 
-[sub_resource type="Animation" id="Animation_4dg4u"]
-resource_name = "typewriter"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/DialogPopup/Dialog/Message:visible_ratio")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.0666667, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 1.0]
-}
-
 [sub_resource type="Animation" id="Animation_qn3k5"]
 length = 0.001
 tracks/0/type = "value"
@@ -1372,6 +1357,21 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [1.0]
+}
+
+[sub_resource type="Animation" id="Animation_4dg4u"]
+resource_name = "typewriter"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/DialogPopup/Dialog/Message:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0666667, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_junup"]
@@ -1464,7 +1464,6 @@ editor_draw_limits = true
 [node name="RayCast2D" type="RayCast2D" parent="Charlie"]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="Inv_UI" parent="CanvasLayer" instance=ExtResource("15_kv2v1")]
 anchors_preset = 8
@@ -1481,7 +1480,6 @@ grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="DialogPopup" type="CanvasLayer" parent="CanvasLayer"]
-visible = false
 script = ExtResource("16_mexjo")
 
 [node name="CharacterFace" type="TextureRect" parent="CanvasLayer/DialogPopup"]

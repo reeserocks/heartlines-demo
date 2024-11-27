@@ -82,10 +82,7 @@ func _input(event):
 				$CanvasLayer/DialogPopup.message_set(target.get_current_dialogue())
 				$CanvasLayer/DialogPopup.face_set(target.name)
 				$CanvasLayer/DialogPopup.open()
-			
-			elif target.is_in_group("collectible"):
-				print("Interacted with Collectible: " + target.name)
-				
+
 # ACTIVE CHARACTER MOVEMENT
 func _process_active_character(delta):
 	# GET PLAYER INPUT

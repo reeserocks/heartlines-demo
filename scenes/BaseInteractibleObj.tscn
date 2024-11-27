@@ -1,13 +1,41 @@
-[gd_scene load_steps=9 format=3 uid="uid://c3bgpyofqbuki"]
+[gd_scene load_steps=7 format=3 uid="uid://b5qm8ksmw3tmg"]
 
-[ext_resource type="Script" path="res://scripts/items/interactible/Tiger.gd" id="1_gcukg"]
-[ext_resource type="Texture2D" uid="uid://e5vijwua7msb" path="res://assets/MyAssets/Maps/workshop int/tiger.png" id="1_mxpe8"]
-[ext_resource type="Script" path="res://scripts/items/interactible/LongerDescPopup.gd" id="3_qeabg"]
-[ext_resource type="FontFile" uid="uid://digbq0mlkbh3p" path="res://assets/TemplateAssets/Assets/Font/Schrödinger.ttf" id="4_fajut"]
+[ext_resource type="Script" path="res://scripts/items/interactible/LongerDescPopup.gd" id="2_u168p"]
+[ext_resource type="FontFile" uid="uid://digbq0mlkbh3p" path="res://assets/TemplateAssets/Assets/Font/Schrödinger.ttf" id="3_qi0fs"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jqhmj"]
-radius = 231.0
-height = 560.0
+[sub_resource type="GDScript" id="GDScript_3tu2i"]
+script/source = "### BaseInteractibleObj.gd
+
+extends StaticBody2D
+
+var player_near = false
+var player_body = null
+
+@export var messages : Array = []
+@onready var dialog_popup = $LongerDescPopup
+
+var current_message_index : int = 0
+
+func _on_area_2d_body_entered(body: Node2D):
+	if body.name in [\"Charlie\", \"Tess\", \"Jay\"]:
+		player_near = true
+		player_body = body
+
+func _on_area_2d_body_exited(body: Node2D):
+	if body == player_body:
+		player_near = false
+		player_body = null
+
+func _process(delta: float):
+	if player_body and player_near and Input.is_action_just_pressed(\"ui_interact\"):
+		if current_message_index < messages.size():
+			dialog_popup.message_set(messages[current_message_index])
+			dialog_popup.open()
+			current_message_index += 1
+		else:
+			dialog_popup.close()
+			current_message_index = 0
+"
 
 [sub_resource type="Animation" id="Animation_28d4q"]
 length = 0.001
@@ -45,23 +73,21 @@ _data = {
 "typewriter": SubResource("Animation_itvoq")
 }
 
-[node name="Tiger" type="StaticBody2D"]
-script = ExtResource("1_gcukg")
+[node name="BaseInteractibleObj" type="StaticBody2D"]
+script = SubResource("GDScript_3tu2i")
 
-[node name="Tiger" type="Sprite2D" parent="."]
-texture = ExtResource("1_mxpe8")
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(16, 52, 17, 105, 158, 255, 277, 101, 333, -122, 307, -177, 109, -223, -54, -118)
+[node name="Sprite2D" type="Sprite2D" parent="."]
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(135, 15)
-shape = SubResource("CapsuleShape2D_jqhmj")
+position = Vector2(56, -293)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-106, -460, 103, -460, 104, -206, -13, -207, -12, 451, -103, 448)
 
 [node name="LongerDescPopup" type="CanvasLayer" parent="."]
-script = ExtResource("3_qeabg")
+script = ExtResource("2_u168p")
 
 [node name="Dialog" type="ColorRect" parent="LongerDescPopup"]
 anchors_preset = -1
@@ -91,7 +117,7 @@ offset_right = 0.5
 offset_bottom = 22.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("4_fajut")
+theme_override_fonts/font = ExtResource("3_qi0fs")
 theme_override_font_sizes/font_size = 45
 text = "Text...."
 autowrap_mode = 2
@@ -111,7 +137,7 @@ offset_bottom = -15.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(0.283472, 0.399079, 0.736571, 1)
-theme_override_fonts/font = ExtResource("4_fajut")
+theme_override_fonts/font = ExtResource("3_qi0fs")
 theme_override_font_sizes/font_size = 35
 text = "[E to Continue]"
 metadata/_edit_use_anchors_ = true

@@ -1,9 +1,15 @@
-### ChangeScene_EtI.gd
+### Wires.gd
 
 extends Area2D
 
 var player_near = false
 var player_body = null
+
+@export var item: InvItem
+@onready var tiger = $"../Tiger"
+
+func _ready():
+	add_to_group("collectible")
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("active"):
@@ -16,5 +22,7 @@ func _on_body_exited(body: Node2D) -> void:
 		player_body = null
 
 func _process(delta: float):
-	if player_body and Input.is_action_just_pressed("ui_interact"):
-		get_tree().change_scene_to_file("res://scenes/LIMERICK_WorkshopInterior.tscn")
+	if player_body and player_near and Input.is_action_just_pressed("ui_interact"):
+		player_body.collect(item)
+		tiger.wires_collected = true
+		queue_free()

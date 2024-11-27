@@ -2,6 +2,7 @@ extends "res://scripts/characters/BaseCharacter.gd"
 
 func _ready():
 	remove_from_group("npc")
+	add_to_group("active")
 
 func use_ability():
 	animation_sprite.play("ability_tess")

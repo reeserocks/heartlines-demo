@@ -1,24 +1,130 @@
-[gd_scene load_steps=4 format=3 uid="uid://ck3dmluf3tmap"]
+[gd_scene load_steps=10 format=3 uid="uid://c0bo4vbcnyivi"]
 
-[ext_resource type="Texture2D" uid="uid://xrh8gwktuoa2" path="res://assets/MyAssets/Maps/workshop int/corrodedDoor.png" id="1_7yecu"]
+[ext_resource type="Texture2D" uid="uid://cvmkdilryqi20" path="res://assets/MyAssets/Maps/workshop int/lockedDoor.png" id="1_cbmhk"]
+[ext_resource type="Script" path="res://scripts/items/interactible/LockedDoor.gd" id="1_f4hrv"]
+[ext_resource type="Script" path="res://scripts/items/interactible/LongerDescPopup.gd" id="3_7a8b7"]
+[ext_resource type="FontFile" uid="uid://digbq0mlkbh3p" path="res://assets/TemplateAssets/Assets/Font/Schrödinger.ttf" id="4_cmlje"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u5ynt"]
-size = Vector2(238, 194.5)
+size = Vector2(76, 183)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_f5req"]
-size = Vector2(238, 242)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jqhmj"]
+radius = 57.0
+height = 184.0
 
-[node name="Locker" type="StaticBody2D"]
+[sub_resource type="Animation" id="Animation_28d4q"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LongerDescPopup/Dialog/Message:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
 
-[node name="CorrodedDoor" type="Sprite2D" parent="."]
-texture = ExtResource("1_7yecu")
+[sub_resource type="Animation" id="Animation_itvoq"]
+resource_name = "typewriter"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LongerDescPopup/Dialog/Message:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.966667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6dafb"]
+_data = {
+"RESET": SubResource("Animation_28d4q"),
+"typewriter": SubResource("Animation_itvoq")
+}
+
+[node name="LockedDoor" type="StaticBody2D"]
+script = ExtResource("1_f4hrv")
+messages = ["This door is locked.", "The padlock looks old and rusted, like it could be easily broken."]
+
+[node name="LockedDoor" type="Sprite2D" parent="."]
+texture = ExtResource("1_cbmhk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -71.25)
+position = Vector2(17, 1.5)
 shape = SubResource("RectangleShape2D_u5ynt")
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, 145)
-shape = SubResource("RectangleShape2D_f5req")
+position = Vector2(-27, 4)
+shape = SubResource("CapsuleShape2D_jqhmj")
+
+[node name="LongerDescPopup" type="CanvasLayer" parent="."]
+script = ExtResource("3_7a8b7")
+
+[node name="Dialog" type="ColorRect" parent="LongerDescPopup"]
+anchors_preset = -1
+anchor_left = 0.187
+anchor_top = 0.669
+anchor_right = 0.812
+anchor_bottom = 0.904445
+offset_left = 0.959991
+offset_top = -0.52002
+offset_right = 0.959961
+offset_bottom = 0.199951
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0.847059, 0.686275, 0.235294, 0.321569)
+metadata/_edit_use_anchors_ = true
+
+[node name="Message" type="Label" parent="LongerDescPopup/Dialog"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0479167
+anchor_top = 0.280392
+anchor_right = 0.959583
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -22.5
+offset_right = 0.5
+offset_bottom = 22.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_cmlje")
+theme_override_font_sizes/font_size = 45
+text = "Text...."
+autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Continue" type="Label" parent="LongerDescPopup/Dialog"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -143.5
+offset_top = -50.0
+offset_right = 143.5
+offset_bottom = -15.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.283472, 0.399079, 0.736571, 1)
+theme_override_fonts/font = ExtResource("4_cmlje")
+theme_override_font_sizes/font_size = 35
+text = "[E to Continue]"
+metadata/_edit_use_anchors_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_6dafb")
+}
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

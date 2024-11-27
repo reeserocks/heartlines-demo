@@ -8,7 +8,7 @@ size = Vector2(245, 174)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t44bx"]
 size = Vector2(235, 246)
 
-[node name="Locker" type="StaticBody2D"]
+[node name="Wardrobe" type="StaticBody2D"]
 
 [node name="Wardrobe" type="Sprite2D" parent="."]
 texture = ExtResource("1_xm83n")

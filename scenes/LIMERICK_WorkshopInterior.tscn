@@ -1,15 +1,15 @@
-[gd_scene load_steps=23 format=3 uid="uid://b5csrrsbpae8u"]
+[gd_scene load_steps=24 format=3 uid="uid://b5csrrsbpae8u"]
 
 [ext_resource type="Texture2D" uid="uid://f57e116woug6" path="res://assets/MyAssets/Maps/workshop int/floor.png" id="1_kqp6a"]
 [ext_resource type="PackedScene" uid="uid://bldn7fkggpdgb" path="res://scenes/CharacterManager.tscn" id="2_j4x8u"]
 [ext_resource type="PackedScene" uid="uid://b1w6ddnsvst5f" path="res://scenes/limerick workshop stuff/Locker.tscn" id="2_kdyp1"]
 [ext_resource type="PackedScene" uid="uid://ci3h8tk6clo7t" path="res://scenes/limerick workshop stuff/ShelfRight.tscn" id="3_3b0nb"]
-[ext_resource type="PackedScene" uid="uid://ck3dmluf3tmap" path="res://scenes/limerick workshop stuff/LockedDoor.tscn" id="4_chmrr"]
+[ext_resource type="PackedScene" uid="uid://ck3dmluf3tmap" path="res://scenes/limerick workshop stuff/CorrodedDoor.tscn" id="4_chmrr"]
 [ext_resource type="PackedScene" uid="uid://dmkpnw12ruvbn" path="res://scenes/limerick workshop stuff/WorkstationCorkboard.tscn" id="5_oicdx"]
 [ext_resource type="PackedScene" uid="uid://b74akavbnf7ob" path="res://scenes/limerick workshop stuff/Wardrobe.tscn" id="6_360n8"]
 [ext_resource type="PackedScene" uid="uid://sq322n3qymls" path="res://scenes/limerick workshop stuff/Table.tscn" id="7_ywnlv"]
 [ext_resource type="PackedScene" uid="uid://bxxyoyiuusmv0" path="res://scenes/limerick workshop stuff/RobotArm.tscn" id="8_mp55i"]
-[ext_resource type="PackedScene" uid="uid://c0bo4vbcnyivi" path="res://scenes/limerick workshop stuff/CorrodedDoor.tscn" id="9_il42u"]
+[ext_resource type="PackedScene" uid="uid://c0bo4vbcnyivi" path="res://scenes/limerick workshop stuff/LockedDoor.tscn" id="9_il42u"]
 [ext_resource type="PackedScene" uid="uid://csxvfu61ltl0o" path="res://scenes/limerick workshop stuff/Chair.tscn" id="10_cjqxq"]
 [ext_resource type="PackedScene" uid="uid://dadmdvhmu2t1v" path="res://scenes/limerick workshop stuff/Blueprints.tscn" id="11_n7lv3"]
 [ext_resource type="PackedScene" uid="uid://ywh5vltonrtr" path="res://scenes/limerick workshop stuff/Electrical.tscn" id="12_ae1fd"]
@@ -17,7 +17,8 @@
 [ext_resource type="PackedScene" uid="uid://dqnyny36kkgp3" path="res://scenes/limerick workshop stuff/PcSetup.tscn" id="14_h57vp"]
 [ext_resource type="PackedScene" uid="uid://5030ktxsooa7" path="res://scenes/limerick workshop stuff/KeyTable.tscn" id="15_670no"]
 [ext_resource type="PackedScene" uid="uid://5ot3op4w1yuc" path="res://scenes/limerick workshop stuff/Key.tscn" id="16_xrh20"]
-[ext_resource type="PackedScene" uid="uid://f13hmw5qsxt4" path="res://scenes/limerick workshop stuff/Tiger.tscn" id="17_gorh6"]
+[ext_resource type="PackedScene" uid="uid://h6pamgvljxo3" path="res://scenes/limerick workshop stuff/collectible/Pliers.tscn" id="17_3xo12"]
+[ext_resource type="PackedScene" uid="uid://c3bgpyofqbuki" path="res://scenes/limerick workshop stuff/Tiger.tscn" id="17_gorh6"]
 [ext_resource type="Script" path="res://scripts/ChangeScene_ItE.gd" id="19_y07vi"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rjuy1"]
@@ -25,7 +26,7 @@ resource_name = "workshopFloor"
 texture = ExtResource("1_kqp6a")
 texture_region_size = Vector2i(1920, 1929)
 0:0/0 = 0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-705, 968.5, -703, 889.5, -871, 889.5, -869, 211.5, 578, 214.5, 574, -124.5, 199, -119.5, 198, -582.5, 883, -582.5, 881, -117.5, 743, -121.5, 744, 216.5, 883, 215.5, 881, 888.5, -434, 890.5, -437, 367.5, -499, 366.5, -499, 889.5, -521, 888.5, -520, 970.5, 968, 970.5, 964, -976.5, -970, -980.5, -970, 966.5)
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-972, 1078, -256, 1062, -700, 890, -868, 884, -878, 210, 566, 208, 568, -114, 198, -116, 202, -590, 882, -586, 886, -120, 742, -120, 744, 202, 886, 206, 888, 894, -442, 894, -440, 370, -496, 368, -500, 898, -522, 888, -764, 1016, 1048, 1066, 1004, -1024, -1036, -1028)
 
 [sub_resource type="TileSet" id="TileSet_asf7s"]
 physics_layer_0/collision_layer = 1
@@ -40,56 +41,56 @@ radius = 137.441
 tile_map_data = PackedByteArray(0, 0, 59, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 tile_set = SubResource("TileSet_asf7s")
 
-[node name="Locker" parent="Map" instance=ExtResource("2_kdyp1")]
+[node name="LockedDoor" parent="." instance=ExtResource("9_il42u")]
+position = Vector2(469, 419)
+
+[node name="Locker" parent="." instance=ExtResource("2_kdyp1")]
 position = Vector2(178, 568)
 
-[node name="ShelfRight" parent="Map" instance=ExtResource("3_3b0nb")]
+[node name="Pliers" parent="." instance=ExtResource("17_3xo12")]
+position = Vector2(193, 285)
+
+[node name="ShelfRight" parent="." instance=ExtResource("3_3b0nb")]
 position = Vector2(1621, 703)
 
-[node name="CorrodedDoor" parent="Map" instance=ExtResource("4_chmrr")]
+[node name="CorrodedDoor" parent="." instance=ExtResource("4_chmrr")]
 position = Vector2(1612, 168)
 
-[node name="WorkstationCorkboard" parent="Map" instance=ExtResource("5_oicdx")]
+[node name="WorkstationCorkboard" parent="." instance=ExtResource("5_oicdx")]
 position = Vector2(902, 218)
 
-[node name="Wardrobe" parent="Map" instance=ExtResource("6_360n8")]
+[node name="Wardrobe" parent="." instance=ExtResource("6_360n8")]
 position = Vector2(1325, 235)
 
-[node name="Table" parent="Map" instance=ExtResource("7_ywnlv")]
+[node name="Table" parent="." instance=ExtResource("7_ywnlv")]
 position = Vector2(1007, 711)
 
-[node name="RobotArm" parent="Map" instance=ExtResource("8_mp55i")]
+[node name="RobotArm" parent="." instance=ExtResource("8_mp55i")]
 position = Vector2(1374, 772)
 
-[node name="LockedDoor" parent="Map" instance=ExtResource("9_il42u")]
-position = Vector2(469, 417)
+[node name="Chair" parent="." instance=ExtResource("10_cjqxq")]
+position = Vector2(1351, 951)
 
-[node name="Chair" parent="Map" instance=ExtResource("10_cjqxq")]
-position = Vector2(1082, 941)
-
-[node name="Blueprints" parent="Map" instance=ExtResource("11_n7lv3")]
+[node name="Blueprints" parent="." instance=ExtResource("11_n7lv3")]
 position = Vector2(1147, 686)
 
-[node name="Electrical" parent="Map" instance=ExtResource("12_ae1fd")]
+[node name="Electrical" parent="." instance=ExtResource("12_ae1fd")]
 position = Vector2(789, 655)
 
-[node name="Gears" parent="Map" instance=ExtResource("13_jn7lq")]
+[node name="Gears" parent="." instance=ExtResource("13_jn7lq")]
 position = Vector2(1502, 950)
 
-[node name="PcSetup" parent="Map" instance=ExtResource("14_h57vp")]
+[node name="PcSetup" parent="." instance=ExtResource("14_h57vp")]
 position = Vector2(1314, -344)
 
-[node name="KeyTable" parent="Map" instance=ExtResource("15_670no")]
+[node name="KeyTable" parent="." instance=ExtResource("15_670no")]
 position = Vector2(1779, -133)
 
-[node name="Key" parent="Map" instance=ExtResource("16_xrh20")]
+[node name="Key" parent="." instance=ExtResource("16_xrh20")]
 position = Vector2(1744, -140)
 
-[node name="Tiger" parent="Map" instance=ExtResource("17_gorh6")]
+[node name="Tiger" parent="." instance=ExtResource("17_gorh6")]
 position = Vector2(1505, -464)
-
-[node name="CharacterManager" parent="." instance=ExtResource("2_j4x8u")]
-position = Vector2(372, -92)
 
 [node name="ChangeScene" type="Area2D" parent="."]
 script = ExtResource("19_y07vi")
@@ -97,6 +98,23 @@ script = ExtResource("19_y07vi")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ChangeScene"]
 position = Vector2(332, 1089)
 shape = SubResource("CircleShape2D_1u5ah")
+
+[node name="CharacterManager" parent="." instance=ExtResource("2_j4x8u")]
+position = Vector2(372, -92)
+
+[node name="Room1_Lights" type="ColorRect" parent="."]
+offset_left = 506.0
+offset_top = 60.0
+offset_right = 1853.0
+offset_bottom = 1026.0
+color = Color(0, 0, 0, 1)
+
+[node name="Room2_Lights" type="ColorRect" parent="."]
+offset_left = 1146.0
+offset_top = -724.0
+offset_right = 1853.0
+offset_bottom = 14.0
+color = Color(0, 0, 0, 1)
 
 [connection signal="body_entered" from="ChangeScene" to="ChangeScene" method="_on_body_entered"]
 [connection signal="body_exited" from="ChangeScene" to="ChangeScene" method="_on_body_exited"]

@@ -1,17 +1,23 @@
-[gd_scene load_steps=7 format=3 uid="uid://qaheiif14eto"]
+[gd_scene load_steps=9 format=3 uid="uid://qaheiif14eto"]
 
 [ext_resource type="Script" path="res://scripts/items/collectible/BaseCollectibleObj.gd" id="1_lrg88"]
-[ext_resource type="Resource" uid="uid://2oywrfihaf5o" path="res://resources/InventoryItem.tres" id="2_gkla7"]
+[ext_resource type="Script" path="res://scripts/inventory/InventoryItem.gd" id="2_uodj5"]
 [ext_resource type="Texture2D" uid="uid://bgg2mjpheturs" path="res://assets/TemplateAssets/Assets/Icons/book_01f.png" id="3_0d2o0"]
+[ext_resource type="Texture2D" uid="uid://op3qjly7tcqo" path="res://assets/TemplateAssets/Assets/Icons/arrow_03c.png" id="3_kvyhh"]
 [ext_resource type="FontFile" uid="uid://digbq0mlkbh3p" path="res://assets/TemplateAssets/Assets/Font/Schrödinger.ttf" id="5_b3pcn"]
-[ext_resource type="Script" path="res://scripts/DescPopup.gd" id="5_r34vi"]
+[ext_resource type="Script" path="res://scripts/items/collectible/DescPopup.gd" id="5_r34vi"]
+
+[sub_resource type="Resource" id="Resource_7dxuk"]
+script = ExtResource("2_uodj5")
+name = "Base"
+texture = ExtResource("3_kvyhh")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0o84n"]
 radius = 138.177
 
 [node name="BaseCollectibleObj" type="Area2D" groups=["collectible"]]
 script = ExtResource("1_lrg88")
-item = ExtResource("2_gkla7")
+item = SubResource("Resource_7dxuk")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(30.625, 30.625)
