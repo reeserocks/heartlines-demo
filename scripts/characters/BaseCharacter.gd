@@ -1,7 +1,7 @@
 ### BaseCharacter.gd
 extends CharacterBody2D
 
-class_name Player
+class_name NPC
 
 # NODE REFERENCES
 @onready var animation_sprite = $AnimatedSprite2D
@@ -13,6 +13,10 @@ class_name Player
 # UPDATED THROUGHOUT GAME STATE
 var new_direction = Vector2(0,1) #only move one space
 var animation
+
+# DIALOGUE
+var dialogues : Dictionary = {}
+var current_dialogue: String = ""
 
 # APPLY MOVEMENT
 func move_and_animate(direction: Vector2, movement: float):
@@ -59,3 +63,9 @@ func use_ability():
 
 func collect(item):
 	inv.insert(item)
+
+func set_dialogue(active_character):
+	current_dialogue = dialogues[active_character][randi() % dialogues[active_character].size()]
+
+func get_current_dialogue() -> String: 
+	return current_dialogue

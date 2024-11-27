@@ -1,4 +1,4 @@
-[gd_scene load_steps=189 format=3 uid="uid://bldn7fkggpdgb"]
+[gd_scene load_steps=196 format=3 uid="uid://bldn7fkggpdgb"]
 
 [ext_resource type="Script" path="res://scripts/CharacterManager.gd" id="1_yd0rh"]
 [ext_resource type="Script" path="res://scripts/characters/Tess.gd" id="2_y5lj4"]
@@ -14,6 +14,10 @@
 [ext_resource type="Texture2D" uid="uid://2dnshm8fd8pr" path="res://assets/TemplateAssets/Assets/Mobs/Coffin/Coffin Back Sheet.png" id="8_urcl1"]
 [ext_resource type="Script" path="res://scripts/characters/Jay.gd" id="12_noj8i"]
 [ext_resource type="Script" path="res://scripts/characters/Charlie.gd" id="13_nyh2o"]
+[ext_resource type="PackedScene" uid="uid://clk0oe2m5n1se" path="res://scenes/InventoryUI.tscn" id="15_kv2v1"]
+[ext_resource type="FontFile" uid="uid://digbq0mlkbh3p" path="res://assets/TemplateAssets/Assets/Font/Schrödinger.ttf" id="16_45xp5"]
+[ext_resource type="Script" path="res://scripts/DialogPopup.gd" id="16_mexjo"]
+[ext_resource type="Texture2D" uid="uid://k1uoh4351tfo" path="res://icon.svg" id="17_s6diy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1j0b6"]
 atlas = ExtResource("3_n8r74")
@@ -1340,13 +1344,49 @@ animations = [{
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_iflvh"]
 height = 32.0
 
+[sub_resource type="Animation" id="Animation_4dg4u"]
+resource_name = "typewriter"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/DialogPopup/Dialog/Message:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0666667, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_qn3k5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/DialogPopup/Dialog/Message:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_junup"]
+_data = {
+"RESET": SubResource("Animation_qn3k5"),
+"typewriter": SubResource("Animation_4dg4u")
+}
+
 [node name="CharacterManager" type="Node2D"]
 position = Vector2(3, 1)
 script = ExtResource("1_yd0rh")
 speed = 300
 ai_speed = 175
 
-[node name="Tess" type="CharacterBody2D" parent="."]
+[node name="Tess" type="CharacterBody2D" parent="." groups=["npc"]]
 position = Vector2(-3, 1079)
 scale = Vector2(3.5, 3.5)
 script = ExtResource("2_y5lj4")
@@ -1370,7 +1410,9 @@ limit_right = 4900
 limit_bottom = 1080
 editor_draw_limits = true
 
-[node name="Jay" type="CharacterBody2D" parent="."]
+[node name="RayCast2D" type="RayCast2D" parent="Tess"]
+
+[node name="Jay" type="CharacterBody2D" parent="." groups=["npc"]]
 position = Vector2(-3, 1079)
 scale = Vector2(3.5, 3.5)
 script = ExtResource("12_noj8i")
@@ -1394,7 +1436,9 @@ limit_right = 4900
 limit_bottom = 1080
 editor_draw_limits = true
 
-[node name="Charlie" type="CharacterBody2D" parent="."]
+[node name="RayCast2D" type="RayCast2D" parent="Jay"]
+
+[node name="Charlie" type="CharacterBody2D" parent="." groups=["npc"]]
 position = Vector2(-3, 1079)
 scale = Vector2(3.5, 3.5)
 script = ExtResource("13_nyh2o")
@@ -1417,6 +1461,100 @@ limit_right = 4900
 limit_bottom = 1080
 editor_draw_limits = true
 
+[node name="RayCast2D" type="RayCast2D" parent="Charlie"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Inv_UI" parent="CanvasLayer" instance=ExtResource("15_kv2v1")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -214.5
+offset_top = -155.0
+offset_right = 214.5
+offset_bottom = 155.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="DialogPopup" type="CanvasLayer" parent="CanvasLayer"]
+visible = false
+script = ExtResource("16_mexjo")
+
+[node name="CharacterFace" type="TextureRect" parent="CanvasLayer/DialogPopup"]
+offset_left = 413.0
+offset_top = 207.0
+offset_right = 866.0
+offset_bottom = 745.0
+texture = ExtResource("17_s6diy")
+metadata/_edit_use_anchors_ = true
+
+[node name="Dialog" type="ColorRect" parent="CanvasLayer/DialogPopup"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -600.0
+offset_top = -428.0
+offset_right = 600.0
+offset_bottom = -28.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0.846775, 0.687816, 0.234694, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="NPC" type="Label" parent="CanvasLayer/DialogPopup/Dialog"]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 24.0
+offset_right = 170.0
+offset_bottom = 47.0
+theme_override_fonts/font = ExtResource("16_45xp5")
+theme_override_font_sizes/font_size = 50
+text = "Name"
+metadata/_edit_use_anchors_ = true
+
+[node name="Message" type="Label" parent="CanvasLayer/DialogPopup/Dialog"]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 101.0
+offset_right = 1171.0
+offset_bottom = 311.0
+theme_override_fonts/font = ExtResource("16_45xp5")
+theme_override_font_sizes/font_size = 45
+text = "Text here..."
+autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Continue" type="Label" parent="CanvasLayer/DialogPopup/Dialog"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -143.5
+offset_top = -50.0
+offset_right = 143.5
+offset_bottom = -15.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.283472, 0.399079, 0.736571, 1)
+theme_override_fonts/font = ExtResource("16_45xp5")
+theme_override_font_sizes/font_size = 35
+text = "[Space to Exit]"
+metadata/_edit_use_anchors_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_junup")
+}
+
 [connection signal="animation_finished" from="Tess/AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="animation_finished" from="Jay/AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="animation_finished" from="Charlie/AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="animation_finished" from="AnimationPlayer" to="CanvasLayer/DialogPopup" method="_on_animation_player_animation_finished"]

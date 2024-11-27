@@ -10,6 +10,10 @@ var current_state: CharacterState = CharacterState.TESS
 @onready var jay = $Jay
 @onready var charlie = $Charlie
 
+@onready var raycast_tess = tess.get_node("RayCast2D")
+@onready var raycast_jay = jay.get_node("RayCast2D")
+@onready var raycast_charlie = charlie.get_node("RayCast2D")
+
 # PARAMETERS
 @export var speed = 175
 
@@ -55,13 +59,33 @@ func _input(event):
 		_switch_to_character(tess)
 	elif event.is_action_pressed("ui_switch_jay"):  # Key 2
 		_switch_to_character(jay)
-	elif event.is_action_pressed("ui_switch_charlie"):  # Key 3
+	elif event.is_action_pressed("ui_switch_charlie"):  # Key 3	
 		_switch_to_character(charlie)
-
-	if event.is_action_pressed("ui_ability"):
+	
+	#ability
+	elif event.is_action_pressed("ui_ability"):
 		active_character.use_ability()
 		print("you used the ability")
-
+	
+	#interact with world
+	elif event.is_action_pressed("ui_interact"):
+		var target = _get_active_character_raycast().get_collider()
+		if target != null:
+			print("Raycast hit: " + target.name)
+			if target.is_in_group("npc") and target != active_character:
+				print("Interacted with NPC: " + target.name)
+				
+				target.set_dialogue(active_character)
+				
+				$CanvasLayer/DialogPopup.npc = target
+				$CanvasLayer/DialogPopup.npc_name_set(target.name)
+				$CanvasLayer/DialogPopup.message_set(target.get_current_dialogue())
+				$CanvasLayer/DialogPopup.face_set(target.name)
+				$CanvasLayer/DialogPopup.open()
+			
+			elif target.is_in_group("collectible"):
+				print("Interacted with Collectible: " + target.name)
+				
 # ACTIVE CHARACTER MOVEMENT
 func _process_active_character(delta):
 	# GET PLAYER INPUT
@@ -75,13 +99,27 @@ func _process_active_character(delta):
 		direction = direction.normalized()
 	
 	active_character.move_and_animate(direction, speed * delta)
+	
+	#TURN RAYCAST2D TOWARD MOVEMENT DIRECTION
+	if direction != Vector2.ZERO:
+		_get_active_character_raycast().target_position = direction.normalized() * 50
 
 # SWITCHING CHARACTERS
 func _switch_to_character(character):
 	if character == active_character:
 		return  # Ignore if already active
+	
+	active_character.remove_from_group("active")
+	active_character.add_to_group("npc")
+	
 	active_character = character
+	
+	#NPC interaction groups
+	active_character.remove_from_group("npc")
+	active_character.add_to_group("active")
+	
 	inactive_characters = [tess, jay, charlie].filter(func(c): return c != active_character)
+	
 	_update_active_character()
 
 func _update_active_character():
@@ -90,7 +128,7 @@ func _update_active_character():
 		character.set_process(character == active_character)
 		character.set_visible(true)
 		
-		# Update Camera2D for  active character
+		# Update Camera2D for active character
 		var camera = character.get_node("Camera2D")
 		if camera:
 			camera.enabled = is_active
@@ -130,3 +168,12 @@ func _move_character(character, delta):
 func _can_move(character):
 	# AI can move only if it is not too close to the player
 	return active_character.global_position.distance_to(character.global_position) > max_ai_distance_from_player
+
+# GET THE ACTIVE CHARACTER'S RAYCAST
+func _get_active_character_raycast() -> RayCast2D:
+	if active_character == tess:
+		return raycast_tess
+	elif active_character == jay:
+		return raycast_jay
+	else:
+		return raycast_charlie
