@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://b5csrrsbpae8u"]
+[gd_scene load_steps=26 format=3 uid="uid://b5csrrsbpae8u"]
 
 [ext_resource type="Texture2D" uid="uid://f57e116woug6" path="res://assets/MyAssets/Maps/workshop int/floor.png" id="1_kqp6a"]
 [ext_resource type="PackedScene" uid="uid://bldn7fkggpdgb" path="res://scenes/CharacterManager.tscn" id="2_j4x8u"]
@@ -35,6 +35,11 @@ sources/0 = SubResource("TileSetAtlasSource_rjuy1")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1u5ah"]
 radius = 137.441
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_4qlak"]
+vertices = PackedVector2Array(397.922, 962.922, 286.242, 1043.3, 287.133, 971.797, 639.891, 583.609, 651.617, 958.328, 565.219, 945.406, 577.258, 463.617, 674.289, 540.898, 234.977, 972.797, 234.008, 416.938, 390.859, 470.359, 1542.93, -25.8906, 1266.1, -28.8906, 1269.89, -379.781, 1446.83, -376.102, 1640.01, -110.719, 1546.06, 423.727, 1643.95, 811.078, 1552.45, 811.906, 1538.47, 558.188, 1477.71, 433, 1154.23, 435.063, 1151.22, 412.039)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2), PackedInt32Array(3, 4, 5, 6), PackedInt32Array(7, 3, 6), PackedInt32Array(0, 2, 8, 9, 10), PackedInt32Array(11, 12, 13, 14, 15), PackedInt32Array(16, 11, 15, 17, 18), PackedInt32Array(16, 18, 19), PackedInt32Array(20, 16, 19), PackedInt32Array(20, 19, 7, 21), PackedInt32Array(10, 9, 22, 6), PackedInt32Array(7, 6, 22, 21)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(276, 1063, 277, 982, 225, 983, 224, 407, 1160, 402, 1163, 425, 1477, 423, 1536, 415, 1533, -16, 1256, -19, 1260, -390, 1452, -386, 1650, -114, 1654, 821, 1543, 822, 1529, 568, 679, 551, 650, 587, 662, 970, 555, 954, 567, 474, 401, 480, 408, 968)])
 
 [node name="LimerickWorkshopInterior" type="Node2D"]
 
@@ -107,6 +112,7 @@ shape = SubResource("CircleShape2D_1u5ah")
 position = Vector2(372, -92)
 
 [node name="Room1_Lights" type="ColorRect" parent="."]
+visible = false
 offset_left = 506.0
 offset_top = 60.0
 offset_right = 1853.0
@@ -114,11 +120,15 @@ offset_bottom = 1026.0
 color = Color(0, 0, 0, 1)
 
 [node name="Room2_Lights" type="ColorRect" parent="."]
+visible = false
 offset_left = 1146.0
 offset_top = -724.0
 offset_right = 1853.0
 offset_bottom = 14.0
 color = Color(0, 0, 0, 1)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_4qlak")
 
 [connection signal="body_entered" from="ChangeScene" to="ChangeScene" method="_on_body_entered"]
 [connection signal="body_exited" from="ChangeScene" to="ChangeScene" method="_on_body_exited"]

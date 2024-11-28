@@ -26,7 +26,7 @@ var current_state: CharacterState = CharacterState.TESS
 @export var ai_speed = 30
 @export var ai_move_chance = 0.5  # 50% chance to move
 @export var ai_decision_interval = 2.0  # Decide every 2 seconds
-@export var min_separation_radius = 10.0  # Minimum distance between characters
+@export var min_separation_radius = 20.0  # Minimum distance between characters
 @export var max_ai_distance_from_player = 100.0  # Max distance the AI can be from the active player
 
 # ACTIVE AND INACTIVE CHARACTERS
@@ -154,17 +154,16 @@ func _process_inactive_ai(delta):
 
 # AI MOVEMENT LOGIC
 func _move_character(character, delta):
-	var random_offset = Vector2(randf_range(-50, 50), randf_range(-50, 50))
-	var target_position = active_character.global_position + random_offset
+	var target_position = active_character.global_position
 	
-	# Ensure character doesn't move too close to others
-	for other_character in [tess, jay, charlie]:
-		if other_character != character and character.global_position.distance_to(other_character.global_position) < min_separation_radius:
-			return  # Skip movement to avoid clustering
-	
-	# Move the character towards the calculated position
-	var direction = (target_position - character.global_position).normalized()
-	character.move_and_animate(direction, ai_speed * delta)
+	# Use the NavigationAgent2D to set the movement target
+	var navigation_agent = _get_navigation_agent(character)
+	navigation_agent.target_position = target_position
+	# Make the character move towards the target position
+	if not navigation_agent.is_navigation_finished():
+		var next_position = navigation_agent.get_next_path_position()
+		var direction = (next_position - character.global_position).normalized()
+		character.move_and_animate(direction, ai_speed * delta)
 
 # AI MOVE CONDITION 
 func _can_move(character):
@@ -179,3 +178,12 @@ func _get_active_character_raycast() -> RayCast2D:
 		return raycast_jay
 	else:
 		return raycast_charlie
+
+# GET THE CHARACTER'S NAVIGATION AGENT
+func _get_navigation_agent(character) -> NavigationAgent2D:
+	if character == tess:
+		return navigation_agent_tess
+	elif character == jay:
+		return navigation_agent_jay
+	else:
+		return navigation_agent_charlie

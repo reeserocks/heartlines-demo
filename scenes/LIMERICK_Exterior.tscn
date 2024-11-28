@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://civ8vcl0o4pox"]
+[gd_scene load_steps=12 format=3 uid="uid://civ8vcl0o4pox"]
 
 [ext_resource type="Texture2D" uid="uid://cueg1vph3f1yq" path="res://assets/MyAssets/Maps/Limerick (ext)/limerick_map.png" id="1_vp0fj"]
 [ext_resource type="PackedScene" uid="uid://qaheiif14eto" path="res://scenes/workshop interior/collectible/BaseCollectibleObj.tscn" id="2_o27a8"]
@@ -27,6 +27,11 @@ sources/0 = SubResource("TileSetAtlasSource_st5sp")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_aalec"]
 radius = 149.111
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_0xidg"]
+vertices = PackedVector2Array(3334.75, -1367.98, 3601.6, -1239.79, 2710.82, -1213.71, 1824.7, -1359.94, 4097.92, 361.039, 4343.96, 478.547, 3815.7, 764.406, 3357.71, 700.758, 2292.99, 819.172, 2570.22, 976.977, 1957.36, 967.047, 2015.04, 730.313, 1714.12, 786.844, 1157.96, 473.469, 1305.04, 596.82, 1169.12, 682, 988.773, 592.813, 991.078, 496.703, 465.727, 682.977, 471.344, 602.82, 1129.04, 341.258, 926.531, 412.977, 913.313, 318.578, 955.609, 229.18, 1118.75, 64.3516, 994.922, 176.781, 1042.54, 42.0313, 1151, -822.688, 711.711, -881.188, 632.531, -1048.75, 1053.32, -1221.61, 1476.34, -1362.88, 1650.21, -1462, 1827.7, -1462, 1652.21, -1365.13, 1430.71, -444.82, 1686.9, -356.109, 2150.83, -54.3906, 2157.82, 342.203, 2012.95, 345.211, 1411.88, 118.258, 1201.05, 31.2031, 1113.69, -209.992, 2599.76, -487.961, 2622.46, -83.3672, 1771.55, -402.156, 1120.52, -1649.25, 1466.34, -1658.72, 1108.93, -1421.39, 1464.58, -664.383, 1497.11, 498.141, 1529.05, 399.211, 2721.92, -608.109, 1415.89, 337.023)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7), PackedInt32Array(8, 7, 6, 9, 10), PackedInt32Array(11, 8, 10, 12), PackedInt32Array(13, 14, 15, 16, 17), PackedInt32Array(15, 18, 19, 16), PackedInt32Array(20, 13, 17, 21, 22, 23), PackedInt32Array(24, 20, 23, 25), PackedInt32Array(24, 25, 26), PackedInt32Array(27, 28, 29, 30, 31), PackedInt32Array(32, 33, 3, 34), PackedInt32Array(35, 36, 37, 38, 39, 40, 41, 42), PackedInt32Array(3, 43, 44, 37, 45), PackedInt32Array(46, 47, 31, 48), PackedInt32Array(24, 26, 42, 41), PackedInt32Array(30, 48, 31), PackedInt32Array(49, 27, 31, 34, 3), PackedInt32Array(39, 11, 12, 50, 51), PackedInt32Array(3, 2, 52, 43), PackedInt32Array(45, 49, 3), PackedInt32Array(36, 45, 37), PackedInt32Array(40, 39, 51, 53)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(462, 593, 979, 583, 981, 500, 917, 417, 903, 317, 947, 224, 986, 172, 1033, 39, 1105, -216, 1429, -456, 1686, -367, 1754, -404, 1459, -656, 1148, -813, 705, -872, 619, -1054, 1045, -1229, 1099, -1423, 1111, -1659, 1476, -1669, 1486, -1373, 1642, -1375, 1640, -1472, 1838, -1472, 1835, -1370, 3337, -1378, 3643, -1231, 2721, -1204, 2732, -604, 2610, -484, 2633, -74, 2161, -45, 2168, 352, 2023, 355, 2025, 723, 2294, 809, 3355, 691, 4098, 350, 4366, 478, 3819, 774, 2571, 987, 1954, 977, 1707, 794, 1486, 500, 1517, 404, 1406, 343, 1402, 125, 1201, 42, 1129, 71, 1139, 340, 1167, 468, 1322, 598, 1172, 692, 455, 693)])
 
 [node name="LIMERICK_Exterior" type="Node2D"]
 
@@ -83,6 +88,9 @@ shape = SubResource("CircleShape2D_aalec")
 
 [node name="Castle" parent="." instance=ExtResource("7_aqxul")]
 position = Vector2(2905, 286)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_0xidg")
 
 [connection signal="body_entered" from="ChangeScene" to="ChangeScene" method="_on_body_entered"]
 [connection signal="body_exited" from="ChangeScene" to="ChangeScene" method="_on_body_exited"]
