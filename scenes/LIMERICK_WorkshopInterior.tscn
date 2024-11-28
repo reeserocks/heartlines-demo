@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://b5csrrsbpae8u"]
+[gd_scene load_steps=25 format=3 uid="uid://b5csrrsbpae8u"]
 
 [ext_resource type="Texture2D" uid="uid://f57e116woug6" path="res://assets/MyAssets/Maps/workshop int/floor.png" id="1_kqp6a"]
 [ext_resource type="PackedScene" uid="uid://bldn7fkggpdgb" path="res://scenes/CharacterManager.tscn" id="2_j4x8u"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://h6pamgvljxo3" path="res://scenes/limerick workshop stuff/collectible/Pliers.tscn" id="17_3xo12"]
 [ext_resource type="PackedScene" uid="uid://c3bgpyofqbuki" path="res://scenes/limerick workshop stuff/Tiger.tscn" id="17_gorh6"]
 [ext_resource type="Script" path="res://scripts/ChangeScene_ItE.gd" id="19_y07vi"]
+[ext_resource type="PackedScene" uid="uid://dwweme2ydb2ud" path="res://scenes/limerick workshop stuff/collectible/Wires.tscn" id="21_7e78r"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rjuy1"]
 resource_name = "workshopFloor"
@@ -61,6 +62,9 @@ position = Vector2(902, 218)
 
 [node name="Wardrobe" parent="." instance=ExtResource("6_360n8")]
 position = Vector2(1325, 235)
+
+[node name="Wires" parent="." instance=ExtResource("21_7e78r")]
+position = Vector2(1302, 289)
 
 [node name="Table" parent="." instance=ExtResource("7_ywnlv")]
 position = Vector2(1007, 711)

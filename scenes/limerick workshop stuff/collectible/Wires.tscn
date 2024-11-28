@@ -10,8 +10,8 @@ name = "Wires"
 texture = ExtResource("3_046nv")
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tdrt7"]
-radius = 52.0
-height = 280.0
+radius = 127.0
+height = 386.0
 
 [node name="Wires" type="Area2D" groups=["collectible"]]
 script = ExtResource("1_d10x2")

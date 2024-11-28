@@ -1,5 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://b74akavbnf7ob"]
+[gd_scene load_steps=5 format=3 uid="uid://b74akavbnf7ob"]
 
+[ext_resource type="Script" path="res://scripts/items/interactible/BaseInteractibleObj.gd" id="1_srqam"]
 [ext_resource type="Texture2D" uid="uid://b70qtt68ckw8f" path="res://assets/MyAssets/Maps/workshop int/wardrobe.png" id="1_xm83n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5pxjj"]
@@ -9,6 +10,8 @@ size = Vector2(245, 174)
 size = Vector2(235, 246)
 
 [node name="Wardrobe" type="StaticBody2D"]
+script = ExtResource("1_srqam")
+messages = ["You open the wardrobe and peer inside...", "You found wires!"]
 
 [node name="Wardrobe" type="Sprite2D" parent="."]
 texture = ExtResource("1_xm83n")
@@ -23,3 +26,6 @@ shape = SubResource("RectangleShape2D_5pxjj")
 position = Vector2(2.99964, 144.5)
 rotation = 1.5708
 shape = SubResource("RectangleShape2D_t44bx")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
