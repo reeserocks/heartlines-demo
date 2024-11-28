@@ -1,4 +1,4 @@
-[gd_scene load_steps=196 format=3 uid="uid://bldn7fkggpdgb"]
+[gd_scene load_steps=195 format=3 uid="uid://bldn7fkggpdgb"]
 
 [ext_resource type="Script" path="res://scripts/CharacterManager.gd" id="1_yd0rh"]
 [ext_resource type="Script" path="res://scripts/characters/Tess.gd" id="2_y5lj4"]
@@ -17,7 +17,6 @@
 [ext_resource type="PackedScene" uid="uid://clk0oe2m5n1se" path="res://scenes/inventory/InventoryUI.tscn" id="15_kv2v1"]
 [ext_resource type="FontFile" uid="uid://digbq0mlkbh3p" path="res://assets/TemplateAssets/Assets/Font/Schrödinger.ttf" id="16_45xp5"]
 [ext_resource type="Script" path="res://scripts/DialogPopup.gd" id="16_mexjo"]
-[ext_resource type="Texture2D" uid="uid://k1uoh4351tfo" path="res://icon.svg" id="17_s6diy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1j0b6"]
 atlas = ExtResource("3_n8r74")
@@ -1470,7 +1469,6 @@ editor_draw_limits = true
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="Charlie"]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="Inv_UI" parent="CanvasLayer" instance=ExtResource("15_kv2v1")]
 anchors_preset = 8
@@ -1487,16 +1485,7 @@ grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="DialogPopup" type="CanvasLayer" parent="CanvasLayer"]
-visible = false
 script = ExtResource("16_mexjo")
-
-[node name="CharacterFace" type="TextureRect" parent="CanvasLayer/DialogPopup"]
-offset_left = 413.0
-offset_top = 207.0
-offset_right = 866.0
-offset_bottom = 745.0
-texture = ExtResource("17_s6diy")
-metadata/_edit_use_anchors_ = true
 
 [node name="Dialog" type="ColorRect" parent="CanvasLayer/DialogPopup"]
 anchors_preset = 7

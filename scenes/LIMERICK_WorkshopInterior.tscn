@@ -112,7 +112,6 @@ shape = SubResource("CircleShape2D_1u5ah")
 position = Vector2(372, -92)
 
 [node name="Room1_Lights" type="ColorRect" parent="."]
-visible = false
 offset_left = 506.0
 offset_top = 60.0
 offset_right = 1853.0
@@ -120,7 +119,6 @@ offset_bottom = 1026.0
 color = Color(0, 0, 0, 1)
 
 [node name="Room2_Lights" type="ColorRect" parent="."]
-visible = false
 offset_left = 1146.0
 offset_top = -724.0
 offset_right = 1853.0

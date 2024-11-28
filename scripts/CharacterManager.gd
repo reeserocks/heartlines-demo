@@ -26,8 +26,8 @@ var current_state: CharacterState = CharacterState.TESS
 @export var ai_speed = 30
 @export var ai_move_chance = 0.5  # 50% chance to move
 @export var ai_decision_interval = 2.0  # Decide every 2 seconds
-@export var min_separation_radius = 20.0  # Minimum distance between characters
-@export var max_ai_distance_from_player = 100.0  # Max distance the AI can be from the active player
+@export var min_separation_radius = 175.0  # Minimum distance between characters
+@export var max_ai_distance_from_player = 200.0  # Max distance the AI can be from the active player
 
 # ACTIVE AND INACTIVE CHARACTERS
 var active_character
@@ -85,7 +85,6 @@ func _input(event):
 				$CanvasLayer/DialogPopup.npc = target
 				$CanvasLayer/DialogPopup.npc_name_set(target.name)
 				$CanvasLayer/DialogPopup.message_set(target.get_current_dialogue())
-				$CanvasLayer/DialogPopup.face_set(target.name)
 				$CanvasLayer/DialogPopup.open()
 
 # ACTIVE CHARACTER MOVEMENT
@@ -148,9 +147,35 @@ func _process_inactive_ai(delta):
 
 		# Check if AI should move
 		if state["moving"] and _can_move(character):
-			_move_character(character, delta)
+			if _is_active_character_nearby(character):
+				# If active character is too close, move away
+				_move_away_from_active_character(character, delta)
+			else:
+				_move_character(character, delta)
 		else:
 			character.move_and_animate(Vector2.ZERO, 0)
+
+# CHECK IF THE ACTIVE CHARACTER IS TOO CLOSE
+func _is_active_character_nearby(character) -> bool:
+	var distance = active_character.global_position.distance_to(character.global_position)
+	return distance < min_separation_radius  # If closer than the minimum separation radius
+
+
+# MOVE THE NPC AWAY FROM THE ACTIVE CHARACTER
+func _move_away_from_active_character(character, delta):
+	# Calculate direction away from the active character
+	var direction_to_player = character.global_position - active_character.global_position
+	var move_direction = direction_to_player.normalized()
+	
+	# Move the NPC in the opposite direction
+	var navigation_agent = _get_navigation_agent(character)
+	navigation_agent.target_position = character.global_position + move_direction * 50  # Move away by 50 units
+
+	# Move the character to the new position
+	if not navigation_agent.is_navigation_finished():
+		var next_position = navigation_agent.get_next_path_position()
+		var direction = (next_position - character.global_position).normalized()
+		character.move_and_animate(direction, ai_speed * delta)
 
 # AI MOVEMENT LOGIC
 func _move_character(character, delta):
