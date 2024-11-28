@@ -1,10 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://civ8vcl0o4pox"]
+[gd_scene load_steps=11 format=3 uid="uid://civ8vcl0o4pox"]
 
 [ext_resource type="Texture2D" uid="uid://cueg1vph3f1yq" path="res://assets/MyAssets/Maps/Limerick (ext)/limerick_map.png" id="1_vp0fj"]
-[ext_resource type="PackedScene" uid="uid://qaheiif14eto" path="res://scenes/BaseCollectibleObj.tscn" id="2_o27a8"]
+[ext_resource type="PackedScene" uid="uid://qaheiif14eto" path="res://scenes/workshop interior/collectible/BaseCollectibleObj.tscn" id="2_o27a8"]
 [ext_resource type="PackedScene" uid="uid://bldn7fkggpdgb" path="res://scenes/CharacterManager.tscn" id="3_uatgl"]
-[ext_resource type="PackedScene" uid="uid://b7xwbtfhhi18w" path="res://scenes/Tree.tscn" id="4_lf88e"]
+[ext_resource type="PackedScene" uid="uid://b7xwbtfhhi18w" path="res://scenes/exterior/Tree.tscn" id="4_lf88e"]
+[ext_resource type="PackedScene" uid="uid://d2sr5e6svc14r" path="res://scenes/exterior/Cow.tscn" id="5_srqmg"]
 [ext_resource type="Script" path="res://scripts/ChangeScene_EtI.gd" id="6_hv4fs"]
+[ext_resource type="PackedScene" uid="uid://yitvooe1xdde" path="res://scenes/exterior/Castle.tscn" id="7_aqxul"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_st5sp"]
 resource_name = "limerickExt"
@@ -69,12 +71,18 @@ position = Vector2(4490, 96)
 [node name="Tree9" parent="." instance=ExtResource("4_lf88e")]
 position = Vector2(4315, 270)
 
+[node name="Cow" parent="." instance=ExtResource("5_srqmg")]
+position = Vector2(3527, -1401)
+
 [node name="ChangeScene" type="Area2D" parent="."]
 script = ExtResource("6_hv4fs")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ChangeScene"]
 position = Vector2(1738, -1382)
 shape = SubResource("CircleShape2D_aalec")
+
+[node name="Castle" parent="." instance=ExtResource("7_aqxul")]
+position = Vector2(2905, 286)
 
 [connection signal="body_entered" from="ChangeScene" to="ChangeScene" method="_on_body_entered"]
 [connection signal="body_exited" from="ChangeScene" to="ChangeScene" method="_on_body_exited"]

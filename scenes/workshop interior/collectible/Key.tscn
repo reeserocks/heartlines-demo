@@ -1,0 +1,66 @@
+[gd_scene load_steps=8 format=3 uid="uid://5ot3op4w1yuc"]
+
+[ext_resource type="Script" path="res://scripts/items/collectible/Key.gd" id="1_dk3m4"]
+[ext_resource type="Texture2D" uid="uid://dcear4ki2gkd6" path="res://assets/MyAssets/Maps/workshop int/key.png" id="1_em2l6"]
+[ext_resource type="Script" path="res://scripts/inventory/InventoryItem.gd" id="2_ar8du"]
+[ext_resource type="Script" path="res://scripts/items/collectible/DescPopup.gd" id="3_24asp"]
+[ext_resource type="FontFile" uid="uid://digbq0mlkbh3p" path="res://assets/TemplateAssets/Assets/Font/Schrödinger.ttf" id="4_8y5f5"]
+
+[sub_resource type="Resource" id="Resource_g50uu"]
+script = ExtResource("2_ar8du")
+name = "Key"
+texture = ExtResource("1_em2l6")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xgc36"]
+radius = 101.607
+
+[node name="Key" type="Area2D"]
+script = ExtResource("1_dk3m4")
+item = SubResource("Resource_g50uu")
+
+[node name="Key" type="Sprite2D" parent="."]
+texture = ExtResource("1_em2l6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_xgc36")
+
+[node name="DescPopup" type="CanvasLayer" parent="."]
+script = ExtResource("3_24asp")
+
+[node name="Dialog" type="ColorRect" parent="DescPopup"]
+anchors_preset = -1
+anchor_left = 0.187
+anchor_top = 0.669
+anchor_right = 0.812
+anchor_bottom = 0.81
+offset_left = 0.959991
+offset_top = -0.52002
+offset_right = 0.959961
+offset_bottom = 0.199951
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0.847059, 0.686275, 0.235294, 0.321569)
+metadata/_edit_use_anchors_ = true
+
+[node name="Message" type="Label" parent="DescPopup/Dialog"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0479167
+anchor_top = 0.5
+anchor_right = 0.959583
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -22.5
+offset_right = 0.5
+offset_bottom = 22.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_8y5f5")
+theme_override_font_sizes/font_size = 45
+text = "Text...."
+horizontal_alignment = 1
+autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

@@ -1,0 +1,66 @@
+[gd_scene load_steps=8 format=3 uid="uid://ywh5vltonrtr"]
+
+[ext_resource type="Script" path="res://scripts/items/collectible/Electrical.gd" id="1_e6pe3"]
+[ext_resource type="Texture2D" uid="uid://ctdbtaaj0ycss" path="res://assets/MyAssets/Maps/workshop int/electrical.png" id="1_qn2tx"]
+[ext_resource type="Script" path="res://scripts/inventory/InventoryItem.gd" id="2_kiuat"]
+[ext_resource type="Script" path="res://scripts/items/collectible/DescPopup.gd" id="4_4b7ds"]
+[ext_resource type="FontFile" uid="uid://digbq0mlkbh3p" path="res://assets/TemplateAssets/Assets/Font/Schrödinger.ttf" id="5_0nxfu"]
+
+[sub_resource type="Resource" id="Resource_vhiao"]
+script = ExtResource("2_kiuat")
+name = "Electrical Component"
+texture = ExtResource("1_qn2tx")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xgc36"]
+radius = 166.589
+
+[node name="Electrical" type="Area2D"]
+script = ExtResource("1_e6pe3")
+item = SubResource("Resource_vhiao")
+
+[node name="Electrical" type="Sprite2D" parent="."]
+texture = ExtResource("1_qn2tx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_xgc36")
+
+[node name="DescPopup" type="CanvasLayer" parent="."]
+script = ExtResource("4_4b7ds")
+
+[node name="Dialog" type="ColorRect" parent="DescPopup"]
+anchors_preset = -1
+anchor_left = 0.187
+anchor_top = 0.669
+anchor_right = 0.812
+anchor_bottom = 0.81
+offset_left = 0.959991
+offset_top = -0.52002
+offset_right = 0.959961
+offset_bottom = 0.199951
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0.847059, 0.686275, 0.235294, 0.321569)
+metadata/_edit_use_anchors_ = true
+
+[node name="Message" type="Label" parent="DescPopup/Dialog"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0479167
+anchor_top = 0.5
+anchor_right = 0.959583
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -22.5
+offset_right = 0.5
+offset_bottom = 22.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_0nxfu")
+theme_override_font_sizes/font_size = 45
+text = "Text...."
+horizontal_alignment = 1
+autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

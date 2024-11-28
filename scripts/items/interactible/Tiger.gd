@@ -33,15 +33,20 @@ func _process(delta: float):
 			else:
 				dialog_popup.close()
 				current_message_index = 0
-		else: 
-			dialog_popup.message_set("The TIGER wakes up.")
-			dialog_popup.open()
-			_delete_all_after_delay()
+		else:
+			if player_body.name == "Jay": 
+				dialog_popup.message_set("You put everything in its right place, and the TIGER wakes up.")
+				dialog_popup.open()
+				_delete_all_after_delay()
+			elif player_body.name in ["Charlie", "Tess"]:
+				dialog_popup.message_set("I have all the components, but I don't know what to do with them.")
+				dialog_popup.open()
+				
 
 func _delete_all_after_delay():
 	var delete_timer = Timer.new()
 	add_child(delete_timer)
-	delete_timer.wait_time = 1.0
+	delete_timer.wait_time = 3.0
 	delete_timer.one_shot = true 
 	delete_timer.autostart = false
 	delete_timer.start()

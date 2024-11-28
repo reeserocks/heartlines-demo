@@ -14,6 +14,11 @@ var current_state: CharacterState = CharacterState.TESS
 @onready var raycast_jay = jay.get_node("RayCast2D")
 @onready var raycast_charlie = charlie.get_node("RayCast2D")
 
+@onready var navigation_agent_tess = tess.get_node("NavigationAgent2D")
+@onready var navigation_agent_jay = jay.get_node("NavigationAgent2D")
+@onready var navigation_agent_charlie = charlie.get_node("NavigationAgent2D")
+
+
 # PARAMETERS
 @export var speed = 175
 

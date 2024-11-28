@@ -1,13 +1,15 @@
-[gd_scene load_steps=9 format=3 uid="uid://c3bgpyofqbuki"]
+[gd_scene load_steps=10 format=3 uid="uid://b74akavbnf7ob"]
 
-[ext_resource type="Script" path="res://scripts/items/interactible/Tiger.gd" id="1_gcukg"]
-[ext_resource type="Texture2D" uid="uid://e5vijwua7msb" path="res://assets/MyAssets/Maps/workshop int/tiger.png" id="1_mxpe8"]
-[ext_resource type="Script" path="res://scripts/items/interactible/LongerDescPopup.gd" id="3_qeabg"]
-[ext_resource type="FontFile" uid="uid://digbq0mlkbh3p" path="res://assets/TemplateAssets/Assets/Font/Schrödinger.ttf" id="4_fajut"]
+[ext_resource type="Script" path="res://scripts/items/interactible/BaseInteractibleObj.gd" id="1_srqam"]
+[ext_resource type="Texture2D" uid="uid://b70qtt68ckw8f" path="res://assets/MyAssets/Maps/workshop int/wardrobe.png" id="1_xm83n"]
+[ext_resource type="Script" path="res://scripts/items/interactible/LongerDescPopup.gd" id="3_yfh4u"]
+[ext_resource type="FontFile" uid="uid://digbq0mlkbh3p" path="res://assets/TemplateAssets/Assets/Font/Schrödinger.ttf" id="4_rn80f"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jqhmj"]
-radius = 231.0
-height = 560.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5pxjj"]
+size = Vector2(245, 174)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t44bx"]
+size = Vector2(235, 246)
 
 [sub_resource type="Animation" id="Animation_28d4q"]
 length = 0.001
@@ -45,23 +47,26 @@ _data = {
 "typewriter": SubResource("Animation_itvoq")
 }
 
-[node name="Tiger" type="StaticBody2D"]
-script = ExtResource("1_gcukg")
+[node name="Wardrobe" type="StaticBody2D"]
+script = ExtResource("1_srqam")
+messages = ["You open the wardrobe and peer inside...", "You found wires!"]
 
-[node name="Tiger" type="Sprite2D" parent="."]
-texture = ExtResource("1_mxpe8")
+[node name="Wardrobe" type="Sprite2D" parent="."]
+texture = ExtResource("1_xm83n")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(16, 52, 17, 105, 158, 255, 277, 101, 333, -122, 307, -177, 109, -223, -54, -118)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2.5, -55)
+shape = SubResource("RectangleShape2D_5pxjj")
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(135, 15)
-shape = SubResource("CapsuleShape2D_jqhmj")
+position = Vector2(2.99964, 144.5)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_t44bx")
 
 [node name="LongerDescPopup" type="CanvasLayer" parent="."]
-script = ExtResource("3_qeabg")
+script = ExtResource("3_yfh4u")
 
 [node name="Dialog" type="ColorRect" parent="LongerDescPopup"]
 anchors_preset = -1
@@ -91,7 +96,7 @@ offset_right = 0.5
 offset_bottom = 22.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("4_fajut")
+theme_override_fonts/font = ExtResource("4_rn80f")
 theme_override_font_sizes/font_size = 45
 text = "Text...."
 autowrap_mode = 2
@@ -111,7 +116,7 @@ offset_bottom = -15.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(0.283472, 0.399079, 0.736571, 1)
-theme_override_fonts/font = ExtResource("4_fajut")
+theme_override_fonts/font = ExtResource("4_rn80f")
 theme_override_font_sizes/font_size = 35
 text = "[E to Continue]"
 metadata/_edit_use_anchors_ = true
