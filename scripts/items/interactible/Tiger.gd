@@ -12,6 +12,7 @@ var electrical_collected = false
 @export var jay_messages : Array = []
 @export var tess_charlie_messages : Array = []
 @onready var dialog_popup = $LongerDescPopup
+@onready var animation_player = $AnimationPlayer
 
 var current_message_index : int = 0
 
@@ -44,7 +45,7 @@ func _process(delta: float):
 				else:
 					dialog_popup.close()
 					current_message_index = 0
-					_delete_all_after_delay()
+					animation_player.play("fade_out")
 			elif player_body.name in ["Charlie", "Tess"]:
 				if current_message_index < tess_charlie_messages.size():
 					dialog_popup.message_set(tess_charlie_messages[current_message_index])
@@ -54,13 +55,7 @@ func _process(delta: float):
 					dialog_popup.close()
 					current_message_index = 0
 
-func _delete_all_after_delay():
-	var delete_timer = Timer.new()
-	add_child(delete_timer)
-	delete_timer.wait_time = 3.0
-	delete_timer.one_shot = true 
-	delete_timer.autostart = false
-	delete_timer.start()
-	
-	await delete_timer.timeout
-	queue_free()
+
+func _on_animation_player_animation_finished(anim_name: StringName):
+	if anim_name == "fade_out":
+		get_tree().change_scene_to_file("res://scenes/cutscenes/End.tscn")

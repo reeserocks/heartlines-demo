@@ -22,7 +22,7 @@
 [ext_resource type="Script" path="res://scripts/ChangeScene_ItE.gd" id="19_y07vi"]
 [ext_resource type="PackedScene" uid="uid://dwweme2ydb2ud" path="res://scenes/workshop interior/collectible/Wires.tscn" id="21_7e78r"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rjuy1"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b1vud"]
 resource_name = "workshopFloor"
 texture = ExtResource("1_kqp6a")
 texture_region_size = Vector2i(1920, 1929)
@@ -31,15 +31,15 @@ texture_region_size = Vector2i(1920, 1929)
 
 [sub_resource type="TileSet" id="TileSet_asf7s"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_rjuy1")
+sources/0 = SubResource("TileSetAtlasSource_b1vud")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1u5ah"]
 radius = 137.441
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_4qlak"]
-vertices = PackedVector2Array(397.922, 962.922, 286.242, 1043.3, 287.133, 971.797, 639.891, 583.609, 651.617, 958.328, 565.219, 945.406, 577.258, 463.617, 674.289, 540.898, 234.977, 972.797, 234.008, 416.938, 390.859, 470.359, 1542.93, -25.8906, 1266.1, -28.8906, 1269.89, -379.781, 1446.83, -376.102, 1640.01, -110.719, 1546.06, 423.727, 1643.95, 811.078, 1552.45, 811.906, 1538.47, 558.188, 1477.71, 433, 1154.23, 435.063, 1151.22, 412.039)
+vertices = PackedVector2Array(397.758, 963.039, 286.242, 1043.3, 287.133, 971.797, 639.891, 583.609, 651.617, 958.328, 565.273, 945.422, 581.313, 430.109, 674.289, 540.898, 235.156, 972.797, 243.844, 421.891, 373.531, 427.891, 1542.93, -25.8906, 1266.1, -28.8906, 1269.89, -379.781, 1446.83, -376.102, 1640.01, -110.719, 1546.06, 423.727, 1643.95, 811.078, 1552.45, 811.906, 1538.47, 558.188, 1477.71, 433, 1154.23, 435.063, 1151.23, 412.094)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2), PackedInt32Array(3, 4, 5, 6), PackedInt32Array(7, 3, 6), PackedInt32Array(0, 2, 8, 9, 10), PackedInt32Array(11, 12, 13, 14, 15), PackedInt32Array(16, 11, 15, 17, 18), PackedInt32Array(16, 18, 19), PackedInt32Array(20, 16, 19), PackedInt32Array(20, 19, 7, 21), PackedInt32Array(10, 9, 22, 6), PackedInt32Array(7, 6, 22, 21)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(276, 1063, 277, 982, 225, 983, 224, 407, 1160, 402, 1163, 425, 1477, 423, 1536, 415, 1533, -16, 1256, -19, 1260, -390, 1452, -386, 1650, -114, 1654, 821, 1543, 822, 1529, 568, 679, 551, 650, 587, 662, 970, 555, 954, 567, 474, 401, 480, 408, 968)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(276, 1063, 277, 982, 225, 983, 234, 412, 1160, 402, 1163, 425, 1477, 423, 1536, 415, 1533, -16, 1256, -19, 1260, -390, 1452, -386, 1650, -114, 1654, 821, 1543, 822, 1529, 568, 679, 551, 650, 587, 662, 970, 555, 954, 571, 440, 384, 438, 408, 968)])
 
 [node name="LimerickWorkshopInterior" type="Node2D"]
 
@@ -82,6 +82,7 @@ position = Vector2(1351, 951)
 
 [node name="Blueprints" parent="." instance=ExtResource("11_n7lv3")]
 position = Vector2(1147, 686)
+messages = ["A collection of wrinkled and torn blueprints sit upon the workshop table, relating to a project titled Tactical Integrated Ground Engagement Robot (T.I.G.E.R.).", "The plans show an Electrical Component, Gears, and Wires as being used to fix a defunct TIGER.", "I bet Jay would know what to do with these.", "You collected: Blueprints!"]
 
 [node name="Electrical" parent="." instance=ExtResource("12_ae1fd")]
 position = Vector2(789, 655)
@@ -99,7 +100,7 @@ position = Vector2(1779, -133)
 position = Vector2(1744, -140)
 
 [node name="Tiger" parent="." instance=ExtResource("17_gorh6")]
-position = Vector2(1505, -464)
+position = Vector2(1501, -481)
 
 [node name="ChangeScene" type="Area2D" parent="."]
 script = ExtResource("19_y07vi")

@@ -18,6 +18,7 @@ var current_state: CharacterState = CharacterState.TESS
 @onready var navigation_agent_jay = jay.get_node("NavigationAgent2D")
 @onready var navigation_agent_charlie = charlie.get_node("NavigationAgent2D")
 
+@onready var background_tilemap = $"../Map"
 
 # PARAMETERS
 @export var speed = 175

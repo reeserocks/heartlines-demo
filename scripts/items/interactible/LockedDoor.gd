@@ -41,7 +41,7 @@ func _process(delta: float):
 func _delete_all_after_delay():
 	var delete_timer = Timer.new()
 	add_child(delete_timer)
-	delete_timer.wait_time = 2.0
+	delete_timer.wait_time = 1.4
 	delete_timer.one_shot = true 
 	delete_timer.autostart = false
 	delete_timer.start()

@@ -37,7 +37,7 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(462, 593, 979, 583, 981
 [node name="LIMERICK_Exterior" type="Node2D"]
 
 [node name="Map" type="TileMapLayer" parent="."]
-position = Vector2(0, 4)
+position = Vector2(-3, 4)
 tile_map_data = PackedByteArray(0, 0, 76, 0, 239, 255, 0, 0, 0, 0, 0, 0, 0, 0)
 tile_set = SubResource("TileSet_aqgy6")
 
