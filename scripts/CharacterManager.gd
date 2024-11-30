@@ -167,6 +167,8 @@ func _switch_to_character(character):
 	
 	inactive_characters = [tess, jay, charlie].filter(func(c): return c != active_character)
 	
+	$CanvasLayer/PlayingAs/ActiveName.text = active_character.name
+	
 	_update_active_character()
 
 func _update_active_character():

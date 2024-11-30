@@ -99,18 +99,12 @@ texture = ExtResource("8_j3mbc")
 
 [node name="Aberration" parent="." instance=ExtResource("9_gj6iy")]
 position = Vector2(1817, -266)
-speed = 30
-max_distance_to_player = 150
 
 [node name="Aberration2" parent="." instance=ExtResource("9_gj6iy")]
 position = Vector2(3093, -785)
-speed = 30
-max_distance_to_player = 150
 
 [node name="Aberration3" parent="." instance=ExtResource("9_gj6iy")]
 position = Vector2(869, -1023)
-speed = 30
-max_distance_to_player = 150
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_0xidg")
