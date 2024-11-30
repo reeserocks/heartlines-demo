@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://f57e116woug6" path="res://assets/MyAssets/Maps/workshop int/floor.png" id="1_ewt4f"]
 [ext_resource type="Script" path="res://scripts/Cutscene.gd" id="1_fl2el"]
 [ext_resource type="Texture2D" uid="uid://bpgbj1gw2cov7" path="res://assets/MyAssets/Maps/workshop int/pcSetup.png" id="2_6nulf"]
-[ext_resource type="PackedScene" uid="uid://biwce850amks2" path="res://scenes/MainMenu.tscn" id="2_r137n"]
+[ext_resource type="PackedScene" uid="uid://biwce850amks2" path="res://scenes/menus/MainMenu.tscn" id="2_r137n"]
 [ext_resource type="Texture2D" uid="uid://benji1vciwr4v" path="res://assets/MyAssets/Maps/workshop int/keyTable.png" id="3_3dkgk"]
 [ext_resource type="Texture2D" uid="uid://xrh8gwktuoa2" path="res://assets/MyAssets/Maps/workshop int/corrodedDoor.png" id="4_guysg"]
 [ext_resource type="Texture2D" uid="uid://dmp7k6gh6rt4q" path="res://assets/MyAssets/NPC/tiger.png" id="4_nif4p"]
@@ -3056,7 +3056,7 @@ texture = ExtResource("4_guysg")
 [node name="Room1_Lights" type="ColorRect" parent="Map"]
 offset_left = 74.0
 offset_top = 60.0
-offset_right = 1857.0
+offset_right = 1847.0
 offset_bottom = 1098.0
 color = Color(0, 0, 0, 1)
 

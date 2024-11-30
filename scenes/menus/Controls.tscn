@@ -1,0 +1,60 @@
+[gd_scene load_steps=3 format=3 uid="uid://bpudg2bx8vem8"]
+
+[ext_resource type="Script" path="res://scripts/Controls.gd" id="1_wbb24"]
+[ext_resource type="FontFile" uid="uid://digbq0mlkbh3p" path="res://assets/TemplateAssets/Assets/Font/Schrödinger.ttf" id="2_dk5gw"]
+
+[node name="Controls" type="Node2D"]
+script = ExtResource("1_wbb24")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 92.0
+offset_top = 197.0
+offset_right = 1838.0
+offset_bottom = 722.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_dk5gw")
+theme_override_font_sizes/font_size = 45
+text = "4-Direction Movement ............................................................. WASD or arrows
+
+Switch character ............................................ 1 (Tess), 2 (Jay), 3 (Charlie)
+
+Open Inventory ............................................................................................. Tab
+
+Interact with World .......................................................................................... E
+
+Use Ability .......................................................................................................... Q
+
+Continue Dialogue ...................................................................................... Space"
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="QuitButton" type="Button" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 565.0
+offset_top = 886.0
+offset_right = 1391.0
+offset_bottom = 1023.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("2_dk5gw")
+theme_override_font_sizes/font_size = 45
+text = "Quit to Main Menu ?"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]

@@ -5,6 +5,8 @@ extends Node2D
 enum CharacterState { TESS, JAY, CHARLIE }
 var current_state: CharacterState = CharacterState.TESS
 
+var paused
+
 # NODE REFERENCES
 @onready var tess = $Tess
 @onready var jay = $Jay
@@ -18,7 +20,7 @@ var current_state: CharacterState = CharacterState.TESS
 @onready var navigation_agent_jay = jay.get_node("NavigationAgent2D")
 @onready var navigation_agent_charlie = charlie.get_node("NavigationAgent2D")
 
-@onready var background_tilemap = $"../Map"
+@onready var controls_scrn = $Controls
 
 # PARAMETERS
 @export var speed = 175
@@ -34,6 +36,7 @@ var current_state: CharacterState = CharacterState.TESS
 var active_character
 var inactive_characters = []
 var ai_states = {}
+
 
 # UPDATE CHARACTER
 func _ready():
@@ -87,6 +90,9 @@ func _input(event):
 				$CanvasLayer/DialogPopup.npc_name_set(target.name)
 				$CanvasLayer/DialogPopup.message_set(target.get_current_dialogue())
 				$CanvasLayer/DialogPopup.open()
+	
+	elif event.is_action_pressed("ui_cancel"):
+		get_tree().change_scene_to_file("res://scenes/menus/MainMenu.tscn")
 
 # ACTIVE CHARACTER MOVEMENT
 func _process_active_character(delta):
