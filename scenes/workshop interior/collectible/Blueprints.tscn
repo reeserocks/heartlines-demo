@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://dadmdvhmu2t1v"]
+[gd_scene load_steps=12 format=3 uid="uid://dadmdvhmu2t1v"]
 
 [ext_resource type="Texture2D" uid="uid://cvnywbltpao8p" path="res://assets/MyAssets/Maps/workshop int/blueprints.png" id="1_3xpyv"]
 [ext_resource type="Script" path="res://scripts/items/collectible/Blueprints.gd" id="1_a7ijf"]
 [ext_resource type="Script" path="res://scripts/inventory/InventoryItem.gd" id="2_2duto"]
 [ext_resource type="Script" path="res://scripts/items/interactible/LongerDescPopup.gd" id="3_542oa"]
 [ext_resource type="FontFile" uid="uid://digbq0mlkbh3p" path="res://assets/TemplateAssets/Assets/Font/Schrödinger.ttf" id="4_xja6r"]
+[ext_resource type="Texture2D" uid="uid://bp36qmygp0moa" path="res://assets/MyAssets/UI/dialogBox.png" id="5_xluy2"]
 
 [sub_resource type="Resource" id="Resource_bhcp4"]
 script = ExtResource("2_2duto")
@@ -64,7 +65,7 @@ shape = SubResource("CircleShape2D_xgc36")
 [node name="LongerDescPopup" type="CanvasLayer" parent="."]
 script = ExtResource("3_542oa")
 
-[node name="Dialog" type="ColorRect" parent="LongerDescPopup"]
+[node name="Dialog" type="NinePatchRect" parent="LongerDescPopup"]
 anchors_preset = -1
 anchor_left = 0.187
 anchor_top = 0.669
@@ -76,7 +77,7 @@ offset_right = 0.959961
 offset_bottom = 0.199951
 grow_horizontal = 2
 grow_vertical = 0
-color = Color(0.847059, 0.686275, 0.235294, 0.321569)
+texture = ExtResource("5_xluy2")
 metadata/_edit_use_anchors_ = true
 
 [node name="Message" type="Label" parent="LongerDescPopup/Dialog"]

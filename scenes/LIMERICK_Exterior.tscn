@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://civ8vcl0o4pox"]
+[gd_scene load_steps=13 format=3 uid="uid://civ8vcl0o4pox"]
 
 [ext_resource type="Texture2D" uid="uid://cueg1vph3f1yq" path="res://assets/MyAssets/Maps/Limerick (ext)/limerick_map.png" id="1_vp0fj"]
 [ext_resource type="PackedScene" uid="uid://qaheiif14eto" path="res://scenes/workshop interior/collectible/BaseCollectibleObj.tscn" id="2_o27a8"]
@@ -7,8 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://d2sr5e6svc14r" path="res://scenes/exterior/Cow.tscn" id="5_srqmg"]
 [ext_resource type="Script" path="res://scripts/ChangeScene_EtI.gd" id="6_hv4fs"]
 [ext_resource type="PackedScene" uid="uid://yitvooe1xdde" path="res://scenes/exterior/Castle.tscn" id="7_aqxul"]
+[ext_resource type="Texture2D" uid="uid://u14y7edt7i3x" path="res://assets/MyAssets/Maps/Limerick (ext)/boat.png" id="8_j3mbc"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_st5sp"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6unvr"]
 resource_name = "limerickExt"
 texture = ExtResource("1_vp0fj")
 texture_region_size = Vector2i(4936, 3240)
@@ -23,7 +24,7 @@ texture_region_size = Vector2i(4936, 3240)
 [sub_resource type="TileSet" id="TileSet_aqgy6"]
 tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_st5sp")
+sources/0 = SubResource("TileSetAtlasSource_6unvr")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_aalec"]
 radius = 149.111
@@ -47,7 +48,6 @@ position = Vector2(1726, 504)
 position = Vector2(1583, 221)
 
 [node name="CharacterManager" parent="." instance=ExtResource("3_uatgl")]
-position = Vector2(957, -540)
 
 [node name="Tree" parent="." instance=ExtResource("4_lf88e")]
 position = Vector2(925, -331)
@@ -91,6 +91,10 @@ position = Vector2(2905, 286)
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_0xidg")
+
+[node name="Boat" type="Sprite2D" parent="."]
+position = Vector2(388, 750)
+texture = ExtResource("8_j3mbc")
 
 [connection signal="body_entered" from="ChangeScene" to="ChangeScene" method="_on_body_entered"]
 [connection signal="body_exited" from="ChangeScene" to="ChangeScene" method="_on_body_exited"]

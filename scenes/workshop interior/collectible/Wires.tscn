@@ -2,12 +2,12 @@
 
 [ext_resource type="Script" path="res://scripts/items/collectible/Wires.gd" id="1_d10x2"]
 [ext_resource type="Script" path="res://scripts/inventory/InventoryItem.gd" id="2_yrrcv"]
-[ext_resource type="Texture2D" uid="uid://mm2mjo7w2idk" path="res://assets/TemplateAssets/Assets/Icons/armor_01b.png" id="3_046nv"]
+[ext_resource type="Texture2D" uid="uid://bn8jrejtctyaw" path="res://assets/MyAssets/Icons/wires.png" id="3_vgwxy"]
 
 [sub_resource type="Resource" id="Resource_aspgt"]
 script = ExtResource("2_yrrcv")
 name = "Wires"
-texture = ExtResource("3_046nv")
+texture = ExtResource("3_vgwxy")
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tdrt7"]
 radius = 127.0

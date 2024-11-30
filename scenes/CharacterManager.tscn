@@ -1,4 +1,4 @@
-[gd_scene load_steps=195 format=3 uid="uid://bldn7fkggpdgb"]
+[gd_scene load_steps=196 format=3 uid="uid://bldn7fkggpdgb"]
 
 [ext_resource type="Script" path="res://scripts/CharacterManager.gd" id="1_yd0rh"]
 [ext_resource type="Script" path="res://scripts/characters/Tess.gd" id="2_y5lj4"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://clk0oe2m5n1se" path="res://scenes/inventory/InventoryUI.tscn" id="15_kv2v1"]
 [ext_resource type="FontFile" uid="uid://digbq0mlkbh3p" path="res://assets/TemplateAssets/Assets/Font/Schrödinger.ttf" id="16_45xp5"]
 [ext_resource type="Script" path="res://scripts/DialogPopup.gd" id="16_mexjo"]
+[ext_resource type="Texture2D" uid="uid://bp36qmygp0moa" path="res://assets/MyAssets/UI/dialogBox.png" id="17_h7g7y"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1j0b6"]
 atlas = ExtResource("3_n8r74")
@@ -1386,7 +1387,7 @@ speed = 300
 ai_speed = 175
 
 [node name="Tess" type="CharacterBody2D" parent="." groups=["npc"]]
-position = Vector2(-3, 1079)
+position = Vector2(850, 601.429)
 scale = Vector2(3.5, 3.5)
 script = ExtResource("2_y5lj4")
 character_name = "tess"
@@ -1414,7 +1415,7 @@ editor_draw_limits = true
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="Tess"]
 
 [node name="Jay" type="CharacterBody2D" parent="." groups=["npc"]]
-position = Vector2(-3, 1079)
+position = Vector2(600, 601.429)
 scale = Vector2(3.5, 3.5)
 script = ExtResource("12_noj8i")
 character_name = "jay"
@@ -1442,7 +1443,7 @@ editor_draw_limits = true
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="Jay"]
 
 [node name="Charlie" type="CharacterBody2D" parent="." groups=["npc"]]
-position = Vector2(-3, 1079)
+position = Vector2(750, 601.429)
 scale = Vector2(3.5, 3.5)
 script = ExtResource("13_nyh2o")
 character_name = "charlie"
@@ -1476,10 +1477,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -214.5
-offset_top = -155.0
-offset_right = 214.5
-offset_bottom = 155.0
+offset_left = -346.0
+offset_top = -334.0
+offset_right = 83.0
+offset_bottom = -24.0
 grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
@@ -1487,7 +1488,7 @@ metadata/_edit_use_anchors_ = true
 [node name="DialogPopup" type="CanvasLayer" parent="CanvasLayer"]
 script = ExtResource("16_mexjo")
 
-[node name="Dialog" type="ColorRect" parent="CanvasLayer/DialogPopup"]
+[node name="Dialog" type="NinePatchRect" parent="CanvasLayer/DialogPopup"]
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -1499,26 +1500,39 @@ offset_right = 600.0
 offset_bottom = -28.0
 grow_horizontal = 2
 grow_vertical = 0
-color = Color(0.846775, 0.687816, 0.234694, 1)
+texture = ExtResource("17_h7g7y")
 metadata/_edit_use_anchors_ = true
 
 [node name="NPC" type="Label" parent="CanvasLayer/DialogPopup/Dialog"]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.065
+anchor_top = 0.0525
+anchor_right = 0.065
+anchor_bottom = 0.12
 offset_left = 35.0
 offset_top = 24.0
 offset_right = 170.0
 offset_bottom = 47.0
+theme_override_colors/font_color = Color(0.807843, 0.835294, 0.831373, 0.682353)
 theme_override_fonts/font = ExtResource("16_45xp5")
 theme_override_font_sizes/font_size = 50
 text = "Name"
 metadata/_edit_use_anchors_ = true
 
 [node name="Message" type="Label" parent="CanvasLayer/DialogPopup/Dialog"]
-layout_mode = 0
-offset_left = 35.0
-offset_top = 101.0
-offset_right = 1171.0
-offset_bottom = 311.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.500833
+anchor_top = 0.535
+anchor_right = 0.500833
+anchor_bottom = 0.535
+offset_left = -500.0
+offset_top = -105.0
+offset_right = 500.0
+offset_bottom = 105.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_fonts/font = ExtResource("16_45xp5")
 theme_override_font_sizes/font_size = 45
 text = "Text here..."
@@ -1527,11 +1541,11 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Continue" type="Label" parent="CanvasLayer/DialogPopup/Dialog"]
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
+anchors_preset = -1
+anchor_left = 0.500417
+anchor_top = 0.9375
+anchor_right = 0.500417
+anchor_bottom = 0.9375
 offset_left = -143.5
 offset_top = -50.0
 offset_right = 143.5

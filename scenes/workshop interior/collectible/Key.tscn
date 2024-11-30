@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://5ot3op4w1yuc"]
+[gd_scene load_steps=9 format=3 uid="uid://5ot3op4w1yuc"]
 
 [ext_resource type="Script" path="res://scripts/items/collectible/Key.gd" id="1_dk3m4"]
 [ext_resource type="Texture2D" uid="uid://dcear4ki2gkd6" path="res://assets/MyAssets/Maps/workshop int/key.png" id="1_em2l6"]
 [ext_resource type="Script" path="res://scripts/inventory/InventoryItem.gd" id="2_ar8du"]
 [ext_resource type="Script" path="res://scripts/items/collectible/DescPopup.gd" id="3_24asp"]
 [ext_resource type="FontFile" uid="uid://digbq0mlkbh3p" path="res://assets/TemplateAssets/Assets/Font/Schrödinger.ttf" id="4_8y5f5"]
+[ext_resource type="Texture2D" uid="uid://bp36qmygp0moa" path="res://assets/MyAssets/UI/dialogBox.png" id="5_o5nlr"]
 
 [sub_resource type="Resource" id="Resource_g50uu"]
 script = ExtResource("2_ar8du")
@@ -27,7 +28,7 @@ shape = SubResource("CircleShape2D_xgc36")
 [node name="DescPopup" type="CanvasLayer" parent="."]
 script = ExtResource("3_24asp")
 
-[node name="Dialog" type="ColorRect" parent="DescPopup"]
+[node name="Dialog" type="NinePatchRect" parent="DescPopup"]
 anchors_preset = -1
 anchor_left = 0.187
 anchor_top = 0.669
@@ -39,7 +40,7 @@ offset_right = 0.959961
 offset_bottom = 0.199951
 grow_horizontal = 2
 grow_vertical = 0
-color = Color(0.847059, 0.686275, 0.235294, 0.321569)
+texture = ExtResource("5_o5nlr")
 metadata/_edit_use_anchors_ = true
 
 [node name="Message" type="Label" parent="DescPopup/Dialog"]

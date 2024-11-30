@@ -2,12 +2,12 @@
 
 [ext_resource type="Script" path="res://scripts/items/collectible/Pliers.gd" id="1_jqtng"]
 [ext_resource type="Script" path="res://scripts/inventory/InventoryItem.gd" id="2_5rcoc"]
-[ext_resource type="Texture2D" uid="uid://b423fkgdmg420" path="res://assets/TemplateAssets/Assets/Icons/bone01a.png" id="3_v61eg"]
+[ext_resource type="Texture2D" uid="uid://5xkmfxxvke41" path="res://assets/MyAssets/Icons/pliers.png" id="3_j5kym"]
 
 [sub_resource type="Resource" id="Resource_6yxwx"]
 script = ExtResource("2_5rcoc")
 name = "Pliers"
-texture = ExtResource("3_v61eg")
+texture = ExtResource("3_j5kym")
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tdrt7"]
 radius = 52.0

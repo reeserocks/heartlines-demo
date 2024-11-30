@@ -109,7 +109,7 @@ position = Vector2(332, 1089)
 shape = SubResource("CircleShape2D_1u5ah")
 
 [node name="CharacterManager" parent="." instance=ExtResource("2_j4x8u")]
-position = Vector2(372, -92)
+position = Vector2(-376, 416)
 
 [node name="Room1_Lights" type="ColorRect" parent="."]
 offset_left = 506.0

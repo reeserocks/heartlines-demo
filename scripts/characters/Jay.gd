@@ -8,7 +8,8 @@ func set_dialogue(active_character):
 		"Tess": [
 			"Hey, we'll find your parents, don't worry.",
 			"I knew your dad very well, and he'd be taking care of your Momma here.",
-			"Your mom and dad love you very much. They wouldn't leave you."
+			"Your mom and dad love you very much. They wouldn't leave you.",
+			"Just north of the castle, your father should be."
 		],
 		"Charlie": [
 			"It's not like them to dissapear like this. I hope they're okay.",

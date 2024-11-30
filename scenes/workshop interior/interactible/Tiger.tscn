@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://c3bgpyofqbuki"]
+[gd_scene load_steps=10 format=3 uid="uid://c3bgpyofqbuki"]
 
 [ext_resource type="Script" path="res://scripts/items/interactible/Tiger.gd" id="1_gcukg"]
 [ext_resource type="Texture2D" uid="uid://e5vijwua7msb" path="res://assets/MyAssets/Maps/workshop int/tiger.png" id="1_mxpe8"]
 [ext_resource type="Script" path="res://scripts/items/interactible/LongerDescPopup.gd" id="3_qeabg"]
 [ext_resource type="FontFile" uid="uid://digbq0mlkbh3p" path="res://assets/TemplateAssets/Assets/Font/Schrödinger.ttf" id="4_fajut"]
+[ext_resource type="Texture2D" uid="uid://bp36qmygp0moa" path="res://assets/MyAssets/UI/dialogBox.png" id="4_qxfwb"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jqhmj"]
 radius = 159.0
@@ -47,6 +48,9 @@ _data = {
 
 [node name="Tiger" type="StaticBody2D"]
 script = ExtResource("1_gcukg")
+messages = ["The giant robot sits quietly in the corner. Its wires connect to computers from various points in time, sparking and whirring loudly.", "You're scared to get close, the robot decked out with tactical gear. Looking at it, though, it looks a lot like the TIGER models from those blueprints.", "Maybe you should continue Tobenna's work and try to wake it up."]
+jay_messages = ["You put everything in its right place, and the TIGER wakes up."]
+tess_charlie_messages = ["I have all the components, but I don't know what to do with them."]
 
 [node name="Tiger" type="Sprite2D" parent="."]
 texture = ExtResource("1_mxpe8")
@@ -63,7 +67,7 @@ shape = SubResource("CapsuleShape2D_jqhmj")
 [node name="LongerDescPopup" type="CanvasLayer" parent="."]
 script = ExtResource("3_qeabg")
 
-[node name="Dialog" type="ColorRect" parent="LongerDescPopup"]
+[node name="Dialog" type="NinePatchRect" parent="LongerDescPopup"]
 anchors_preset = -1
 anchor_left = 0.187
 anchor_top = 0.669
@@ -75,7 +79,7 @@ offset_right = 0.959961
 offset_bottom = 0.199951
 grow_horizontal = 2
 grow_vertical = 0
-color = Color(0.847059, 0.686275, 0.235294, 0.321569)
+texture = ExtResource("4_qxfwb")
 metadata/_edit_use_anchors_ = true
 
 [node name="Message" type="Label" parent="LongerDescPopup/Dialog"]

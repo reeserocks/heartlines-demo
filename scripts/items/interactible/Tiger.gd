@@ -9,6 +9,8 @@ var gears_collected = false
 var electrical_collected = false
 
 @export var messages : Array = []
+@export var jay_messages : Array = []
+@export var tess_charlie_messages : Array = []
 @onready var dialog_popup = $LongerDescPopup
 
 var current_message_index : int = 0
@@ -25,7 +27,7 @@ func _on_area_2d_body_exited(body: Node2D):
 
 func _process(delta: float):
 	if player_body and player_near and Input.is_action_just_pressed("ui_interact"):
-		if wires_collected != true and gears_collected != true and electrical_collected != true:
+		if wires_collected != true or gears_collected != true or electrical_collected != true:
 			if current_message_index < messages.size():
 				dialog_popup.message_set(messages[current_message_index])
 				dialog_popup.open()
@@ -35,13 +37,22 @@ func _process(delta: float):
 				current_message_index = 0
 		else:
 			if player_body.name == "Jay": 
-				dialog_popup.message_set("You put everything in its right place, and the TIGER wakes up.")
-				dialog_popup.open()
-				_delete_all_after_delay()
+				if current_message_index < jay_messages.size():
+					dialog_popup.message_set(jay_messages[current_message_index])
+					dialog_popup.open()
+					current_message_index += 1
+				else:
+					dialog_popup.close()
+					current_message_index = 0
+					_delete_all_after_delay()
 			elif player_body.name in ["Charlie", "Tess"]:
-				dialog_popup.message_set("I have all the components, but I don't know what to do with them.")
-				dialog_popup.open()
-				
+				if current_message_index < tess_charlie_messages.size():
+					dialog_popup.message_set(tess_charlie_messages[current_message_index])
+					dialog_popup.open()
+					current_message_index += 1
+				else:
+					dialog_popup.close()
+					current_message_index = 0
 
 func _delete_all_after_delay():
 	var delete_timer = Timer.new()

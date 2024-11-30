@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://csxvfu61ltl0o"]
+[gd_scene load_steps=10 format=3 uid="uid://csxvfu61ltl0o"]
 
 [ext_resource type="Texture2D" uid="uid://d4mb6ux1mpeha" path="res://assets/MyAssets/Maps/workshop int/chair.png" id="1_h4rie"]
 [ext_resource type="Script" path="res://scripts/items/interactible/Chair.gd" id="1_m2yww"]
 [ext_resource type="Script" path="res://scripts/items/interactible/LongerDescPopup.gd" id="3_ofic7"]
 [ext_resource type="FontFile" uid="uid://digbq0mlkbh3p" path="res://assets/TemplateAssets/Assets/Font/Schrödinger.ttf" id="4_daykw"]
+[ext_resource type="Texture2D" uid="uid://bp36qmygp0moa" path="res://assets/MyAssets/UI/dialogBox.png" id="4_ub4up"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gp85h"]
 size = Vector2(128, 115)
@@ -59,7 +60,7 @@ shape = SubResource("RectangleShape2D_gp85h")
 [node name="LongerDescPopup" type="CanvasLayer" parent="."]
 script = ExtResource("3_ofic7")
 
-[node name="Dialog" type="ColorRect" parent="LongerDescPopup"]
+[node name="Dialog" type="NinePatchRect" parent="LongerDescPopup"]
 anchors_preset = -1
 anchor_left = 0.187
 anchor_top = 0.669
@@ -71,7 +72,7 @@ offset_right = 0.959961
 offset_bottom = 0.199951
 grow_horizontal = 2
 grow_vertical = 0
-color = Color(0.847059, 0.686275, 0.235294, 0.321569)
+texture = ExtResource("4_ub4up")
 metadata/_edit_use_anchors_ = true
 
 [node name="Message" type="Label" parent="LongerDescPopup/Dialog"]

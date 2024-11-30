@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://b1w6ddnsvst5f"]
+[gd_scene load_steps=10 format=3 uid="uid://b1w6ddnsvst5f"]
 
 [ext_resource type="Texture2D" uid="uid://glof0y2rpty0" path="res://assets/MyAssets/Maps/workshop int/locker.png" id="1_pgatt"]
 [ext_resource type="Script" path="res://scripts/items/interactible/LongerDescPopup.gd" id="2_nevdu"]
+[ext_resource type="Texture2D" uid="uid://bp36qmygp0moa" path="res://assets/MyAssets/UI/dialogBox.png" id="3_6lkug"]
 [ext_resource type="FontFile" uid="uid://digbq0mlkbh3p" path="res://assets/TemplateAssets/Assets/Font/Schrödinger.ttf" id="3_o8ohr"]
 
 [sub_resource type="GDScript" id="GDScript_3tu2i"]
@@ -97,7 +98,7 @@ polygon = PackedVector2Array(-106, -460, 103, -460, 104, -206, -13, -207, -12, 4
 [node name="LongerDescPopup" type="CanvasLayer" parent="."]
 script = ExtResource("2_nevdu")
 
-[node name="Dialog" type="ColorRect" parent="LongerDescPopup"]
+[node name="Dialog" type="NinePatchRect" parent="LongerDescPopup"]
 anchors_preset = -1
 anchor_left = 0.187
 anchor_top = 0.669
@@ -109,7 +110,7 @@ offset_right = 0.959961
 offset_bottom = 0.199951
 grow_horizontal = 2
 grow_vertical = 0
-color = Color(0.847059, 0.686275, 0.235294, 0.321569)
+texture = ExtResource("3_6lkug")
 metadata/_edit_use_anchors_ = true
 
 [node name="Message" type="Label" parent="LongerDescPopup/Dialog"]
