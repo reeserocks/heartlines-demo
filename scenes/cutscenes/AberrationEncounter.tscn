@@ -1,0 +1,338 @@
+[gd_scene load_steps=7 format=3 uid="uid://ce3kigaj3ct13"]
+
+[ext_resource type="Script" path="res://scripts/change scene/AberrationEncounter.gd" id="1_xb27p"]
+[ext_resource type="Texture2D" uid="uid://bp36qmygp0moa" path="res://assets/MyAssets/UI/dialogBox.png" id="2_u0hio"]
+[ext_resource type="FontFile" uid="uid://digbq0mlkbh3p" path="res://assets/TemplateAssets/Assets/Font/Schrödinger.ttf" id="3_2egga"]
+
+[sub_resource type="Animation" id="Animation_bg6s1"]
+resource_name = "AberrationEncounter"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DialogPopup/Dialog/NPC:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.7333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": ["Tess", "Charlie"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DialogPopup/Dialog/Message:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.7333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": ["Holy crackers, that thing is seriously disturbing.", "That must be another one of those Aberration ghouls we've seen in the news. We are in a low-population area, so that would make sense."]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("DialogPopup/Dialog/Message:visible_ratio")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.633333, 0.733333, 1.7, 1.83333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 1.0, 0.0, 1.0, 1.0]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.5, 1.7, 3.13333, 3.43333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"values": [{
+"args": [],
+"method": &"pause"
+}, {
+"args": [],
+"method": &"pause"
+}, {
+"args": [],
+"method": &"pause"
+}, {
+"args": [],
+"method": &"cutscene_end"
+}]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("DialogPopup/ColorRect:color")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1.8, 2.7667, 3.16667, 3.43333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 0), Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("DialogPopup/Message2:visible_ratio")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(2.2333, 2.96667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("DialogPopup/Continue2:visible_ratio")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(2.8, 3.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("DialogPopup/Dialog:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 1.83333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_ksgv7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DialogPopup/Dialog/NPC:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Name"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DialogPopup/Dialog/Message:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Text here..."]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("DialogPopup/Dialog/Message:visible_ratio")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("DialogPopup/ColorRect:color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0.723244)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("DialogPopup/Message2:visible_ratio")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("DialogPopup/Continue2:visible_ratio")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("DialogPopup/Dialog:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3bsvb"]
+_data = {
+"AberrationEncounter": SubResource("Animation_bg6s1"),
+"RESET": SubResource("Animation_ksgv7")
+}
+
+[node name="AberrationEncounter" type="Node2D" node_paths=PackedStringArray("animation_player")]
+script = ExtResource("1_xb27p")
+animation_player = NodePath("AnimationPlayer")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_3bsvb")
+}
+autoplay = "AberrationEncounter"
+
+[node name="DialogPopup" type="CanvasLayer" parent="."]
+
+[node name="Dialog" type="NinePatchRect" parent="DialogPopup"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -600.0
+offset_top = -428.0
+offset_right = 600.0
+offset_bottom = -28.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("2_u0hio")
+metadata/_edit_use_anchors_ = true
+
+[node name="NPC" type="Label" parent="DialogPopup/Dialog"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.065
+anchor_top = 0.0525
+anchor_right = 0.065
+anchor_bottom = 0.12
+offset_left = 35.0
+offset_top = 24.0
+offset_right = 170.0
+offset_bottom = 47.0
+theme_override_colors/font_color = Color(0.807843, 0.835294, 0.831373, 0.682353)
+theme_override_fonts/font = ExtResource("3_2egga")
+theme_override_font_sizes/font_size = 50
+text = "Name"
+metadata/_edit_use_anchors_ = true
+
+[node name="Message" type="Label" parent="DialogPopup/Dialog"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.500833
+anchor_top = 0.535
+anchor_right = 0.500833
+anchor_bottom = 0.535
+offset_left = -500.0
+offset_top = -105.0
+offset_right = 500.0
+offset_bottom = 105.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_2egga")
+theme_override_font_sizes/font_size = 45
+text = "Text here..."
+autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Continue" type="Label" parent="DialogPopup/Dialog"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.500417
+anchor_top = 0.9375
+anchor_right = 0.500417
+anchor_bottom = 0.9375
+offset_left = -143.5
+offset_top = -50.0
+offset_right = 143.5
+offset_bottom = -15.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.283472, 0.399079, 0.736571, 1)
+theme_override_fonts/font = ExtResource("3_2egga")
+theme_override_font_sizes/font_size = 35
+text = "[Space to Continue]"
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" type="ColorRect" parent="DialogPopup"]
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 0.723244)
+
+[node name="Message2" type="Label" parent="DialogPopup"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -547.0
+offset_top = -117.0
+offset_right = 553.0
+offset_bottom = 120.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_2egga")
+theme_override_font_sizes/font_size = 45
+text = "Press 3 to play as Charlie. 
+Press Q to aim your shotgun.
+Use your mouse to aim. 
+Press Left Mouse Button to shoot."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Continue2" type="Label" parent="DialogPopup"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -182.0
+offset_top = 155.5
+offset_right = 189.0
+offset_bottom = 190.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.283472, 0.399079, 0.736571, 1)
+theme_override_fonts/font = ExtResource("3_2egga")
+theme_override_font_sizes/font_size = 35
+text = "[Space to Continue]"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true

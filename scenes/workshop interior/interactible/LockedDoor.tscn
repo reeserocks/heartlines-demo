@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://c0bo4vbcnyivi"]
+[gd_scene load_steps=12 format=3 uid="uid://c0bo4vbcnyivi"]
 
 [ext_resource type="Texture2D" uid="uid://cvmkdilryqi20" path="res://assets/MyAssets/Maps/workshop int/lockedDoor.png" id="1_cbmhk"]
 [ext_resource type="Script" path="res://scripts/items/interactible/LockedDoor.gd" id="1_f4hrv"]
@@ -48,6 +48,9 @@ _data = {
 "RESET": SubResource("Animation_28d4q"),
 "typewriter": SubResource("Animation_itvoq")
 }
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gh4h1"]
+size = Vector2(111, 184)
 
 [node name="LockedDoor" type="StaticBody2D"]
 script = ExtResource("1_f4hrv")
@@ -127,5 +130,12 @@ libraries = {
 "": SubResource("AnimationLibrary_6dafb")
 }
 
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(0.5, 2)
+shape = SubResource("RectangleShape2D_gh4h1")
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]

@@ -5,8 +5,6 @@ extends Node2D
 enum CharacterState { TESS, JAY, CHARLIE }
 var current_state: CharacterState = CharacterState.TESS
 
-var paused
-
 # NODE REFERENCES
 @onready var tess = $Tess
 @onready var jay = $Jay
@@ -19,8 +17,6 @@ var paused
 @onready var navigation_agent_tess = tess.get_node("NavigationAgent2D")
 @onready var navigation_agent_jay = jay.get_node("NavigationAgent2D")
 @onready var navigation_agent_charlie = charlie.get_node("NavigationAgent2D")
-
-@onready var controls_scrn = $Controls
 
 # PARAMETERS
 @export var speed = 175
@@ -37,6 +33,11 @@ var active_character
 var inactive_characters = []
 var ai_states = {}
 
+#COMBAT
+var gun_cooldown = true
+var bullet = preload("res://scenes/combat/Bullet.tscn")
+var ability_active = false
+var mouse_loc_from_player = null
 
 # UPDATE CHARACTER
 func _ready():
@@ -52,6 +53,30 @@ func _ready():
 func _physics_process(delta):
 	_process_active_character(delta)
 	_process_inactive_ai(delta)
+	
+	var mouse_pos = get_global_mouse_position()
+	$Charlie/Marker2D.look_at(mouse_pos)
+	mouse_loc_from_player = get_global_mouse_position() - active_character.position 
+	
+	if active_character == charlie:
+		if Input.is_action_just_pressed("ui_ability"):
+			if ability_active == false:
+				Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+				ability_active = true
+			else:
+				Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+				ability_active = false
+	
+		if Input.is_action_just_pressed("ui_shoot") and ability_active and gun_cooldown:
+			gun_cooldown = false
+			var bullet_instance = bullet.instantiate()
+			bullet_instance.rotation = $Charlie/Marker2D.rotation
+			bullet_instance.global_position = $Charlie/Marker2D.global_position
+			add_child(bullet_instance)
+			
+			await get_tree().create_timer(0.4).timeout
+			gun_cooldown = true
+	
 
 # INITIALIZE AI STATES
 func _initialize_ai_states():
@@ -73,8 +98,7 @@ func _input(event):
 	
 	#ability
 	elif event.is_action_pressed("ui_ability"):
-		active_character.use_ability()
-		print("you used the ability")
+			active_character.use_ability()
 	
 	#interact with world
 	elif event.is_action_pressed("ui_interact"):
@@ -106,8 +130,23 @@ func _process_active_character(delta):
 	if abs(direction.x) == 1 and abs(direction.y) == 1:
 		direction = direction.normalized()
 	
-	active_character.move_and_animate(direction, speed * delta)
-	
+	# MOVE IF ABILITY IS NOT ACTIVE
+	if !ability_active:
+		if !GameManager.disable_input:
+			active_character.move_and_animate(direction, speed * delta)
+	# FREEZE IF ABILITY IS ACTIVE
+	else:
+		if mouse_loc_from_player.x >= -25 and mouse_loc_from_player.x <= 25 and mouse_loc_from_player.y < 0:
+				$Charlie/AnimatedSprite2D.play("attack_up")
+		if mouse_loc_from_player.y >= -25 and mouse_loc_from_player.y <= 25 and mouse_loc_from_player.x > 0:
+				$Charlie/AnimatedSprite2D.flip_h = false
+				$Charlie/AnimatedSprite2D.play("attack_side")
+		if mouse_loc_from_player.x >= -25 and mouse_loc_from_player.x <= 25 and mouse_loc_from_player.y > 0:
+				$Charlie/AnimatedSprite2D.play("attack_down")
+		if mouse_loc_from_player.y >= -25 and mouse_loc_from_player.y <= 25 and mouse_loc_from_player.x < 0:
+				$Charlie/AnimatedSprite2D.flip_h = true
+				$Charlie/AnimatedSprite2D.play("attack_side")
+
 	#TURN RAYCAST2D TOWARD MOVEMENT DIRECTION
 	if direction != Vector2.ZERO:
 		_get_active_character_raycast().target_position = direction.normalized() * 50

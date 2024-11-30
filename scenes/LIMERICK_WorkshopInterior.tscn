@@ -19,7 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://5ot3op4w1yuc" path="res://scenes/workshop interior/collectible/Key.tscn" id="16_xrh20"]
 [ext_resource type="PackedScene" uid="uid://h6pamgvljxo3" path="res://scenes/workshop interior/collectible/Pliers.tscn" id="17_3xo12"]
 [ext_resource type="PackedScene" uid="uid://c3bgpyofqbuki" path="res://scenes/workshop interior/interactible/Tiger.tscn" id="17_gorh6"]
-[ext_resource type="Script" path="res://scripts/ChangeScene_ItE.gd" id="19_y07vi"]
+[ext_resource type="Script" path="res://scripts/change scene/ChangeScene_ItE.gd" id="19_y07vi"]
 [ext_resource type="PackedScene" uid="uid://dwweme2ydb2ud" path="res://scenes/workshop interior/collectible/Wires.tscn" id="21_7e78r"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b1vud"]

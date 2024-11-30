@@ -20,7 +20,7 @@ func _on_body_exited(body: Node2D) -> void:
 		player_near = false
 		player_body = null
 
-func _process(delta: float):
+func _process(_delta):
 	if player_body and player_near and Input.is_action_just_pressed("ui_interact"):
 		if current_message_index < messages.size():
 			dialog_popup.message_set(messages[current_message_index])

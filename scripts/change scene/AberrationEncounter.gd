@@ -1,9 +1,11 @@
-extends Node
+### AberrationEncounter.gd
+
+extends Node2D
+
+signal cutscene_finished
 
 @export var animation_player : AnimationPlayer
 @export var autoplay : bool = false
-@export var next_scene : PackedScene
-@export var camera : Camera2D
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
@@ -16,5 +18,5 @@ func pause():
 	if autoplay == false:
 		animation_player.pause()
 
-func change_scene():
-	get_tree().change_scene_to_packed(next_scene)
+func cutscene_end():
+	emit_signal("cutscene_finished")

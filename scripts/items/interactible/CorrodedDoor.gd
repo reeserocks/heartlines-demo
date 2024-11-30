@@ -6,6 +6,8 @@ var player_near = false
 var player_body = null
 var key_collected = false
 
+var health = 500
+
 @export var messages : Array = []
 @export var tess_messages : Array = []
 @onready var dialog_popup = $LongerDescPopup
@@ -22,6 +24,20 @@ func _on_area_2d_body_exited(body: Node2D):
 	if body == player_body:
 		player_near = false
 		player_body = null
+
+func _on_hitbox_area_entered(area: Area2D):
+	var damage
+	if area.has_method("bullet_deal_damage"):
+		damage = 50
+		take_damage(damage)
+
+func take_damage(damage):
+	health = health - damage
+	if health <= 0:
+		dialog_popup.message_set("You blew the door open!")
+		dialog_popup.open()
+		lights_off.visible = false
+		_delete_all_after_delay()
 
 func _process(delta: float):
 	if player_body and player_near and Input.is_action_just_pressed("ui_interact"):

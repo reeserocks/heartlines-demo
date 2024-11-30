@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://biwce850amks2"]
 
-[ext_resource type="Script" path="res://scripts/MainMenu.gd" id="1_iofs5"]
+[ext_resource type="Script" path="res://scripts/menus/MainMenu.gd" id="1_iofs5"]
 [ext_resource type="Texture2D" uid="uid://735q3c15xax5" path="res://assets/MyAssets/poster.PNG" id="1_lm7yd"]
 [ext_resource type="FontFile" uid="uid://digbq0mlkbh3p" path="res://assets/TemplateAssets/Assets/Font/Schrödinger.ttf" id="2_n12dx"]
 [ext_resource type="Texture2D" uid="uid://da7s37jgm7iyp" path="res://assets/MyAssets/logoBlack.png" id="3_t0umq"]

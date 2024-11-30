@@ -6,6 +6,8 @@ var player_near = false
 var player_body = null
 var pliers_collected = false
 
+var health = 50
+
 @export var messages : Array = []
 @onready var dialog_popup = $LongerDescPopup
 @onready var lights_off = $"../Room1_Lights"
@@ -37,6 +39,20 @@ func _process(delta: float):
 			dialog_popup.open()
 			lights_off.visible = false
 			_delete_all_after_delay()
+
+func _on_hitbox_area_entered(area: Area2D):
+	var damage
+	if area.has_method("bullet_deal_damage"):
+		damage = 50
+		take_damage(damage)
+
+func take_damage(damage):
+	health = health - damage
+	if health <= 0:
+		dialog_popup.message_set("You shot the lock off of the door!")
+		dialog_popup.open()
+		lights_off.visible = false
+		_delete_all_after_delay()
 
 func _delete_all_after_delay():
 	var delete_timer = Timer.new()

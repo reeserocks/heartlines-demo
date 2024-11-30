@@ -20,7 +20,7 @@ func _on_body_exited(body: Node2D) -> void:
 		player_near = false
 		player_body = null
 
-func _process(delta: float):
+func _process(_delta):
 	if player_body and player_near and Input.is_action_just_pressed("ui_interact"):
 		player_body.collect(item)
 		var item_message = "You collected: " + item.name + "!"

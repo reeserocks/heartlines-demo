@@ -1,8 +1,5 @@
 extends "res://scripts/characters/BaseCharacter.gd"
 
-func use_ability():
-	animation_sprite.play("ability_charlie")
-
 func set_dialogue(active_character):
 	dialogues = {
 		"Jay": [

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bpudg2bx8vem8"]
 
-[ext_resource type="Script" path="res://scripts/Controls.gd" id="1_wbb24"]
+[ext_resource type="Script" path="res://scripts/menus/Controls.gd" id="1_wbb24"]
 [ext_resource type="FontFile" uid="uid://digbq0mlkbh3p" path="res://assets/TemplateAssets/Assets/Font/Schrödinger.ttf" id="2_dk5gw"]
 
 [node name="Controls" type="Node2D"]
@@ -35,6 +35,8 @@ Open Inventory .................................................................
 Interact with World .......................................................................................... E
 
 Use Ability .......................................................................................................... Q
+
+Shoot ................................................................................... Left Mouse Button
 
 Continue Dialogue ...................................................................................... Space"
 vertical_alignment = 1
