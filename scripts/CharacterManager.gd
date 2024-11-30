@@ -116,7 +116,7 @@ func _input(event):
 				$CanvasLayer/DialogPopup.open()
 	
 	elif event.is_action_pressed("ui_cancel"):
-		get_tree().change_scene_to_file("res://scenes/menus/MainMenu.tscn")
+		GameManager.trigger_controls_menu()
 
 # ACTIVE CHARACTER MOVEMENT
 func _process_active_character(delta):

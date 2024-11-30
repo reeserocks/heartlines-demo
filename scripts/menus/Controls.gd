@@ -7,4 +7,5 @@ func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 func _on_quit_button_pressed():
-	get_tree().change_scene_to_file("res://scenes/menus/MainMenu.tscn")
+	get_tree().current_scene.get_node("Controls").queue_free()
+	GameManager.disable_input = false

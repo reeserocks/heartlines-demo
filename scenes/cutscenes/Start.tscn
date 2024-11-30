@@ -507,7 +507,7 @@ tracks/15/path = NodePath("DialogPopup/Dialog/NPC:text")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/keys = {
-"times": PackedFloat32Array(6.96667, 9.4, 13.6667, 16.5333, 18.8, 21.4, 23.8333),
+"times": PackedFloat32Array(6.96667, 9.4, 13.6667, 16.5333, 18.9, 21.5, 23.9333),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": ["Jay", "Charlie", "Tess", "Jay", "Tess", "Charlie", "Jay"]
@@ -519,7 +519,7 @@ tracks/16/path = NodePath("DialogPopup/Dialog/Message:text")
 tracks/16/interp = 1
 tracks/16/loop_wrap = true
 tracks/16/keys = {
-"times": PackedFloat32Array(6.96667, 9.4, 13.6667, 16.5333, 18.8, 21.4, 23.8333),
+"times": PackedFloat32Array(6.96667, 9.4, 13.6667, 16.5333, 18.9, 21.5, 23.9333),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": ["Oh, I missed these cliffsides. Things don't look the same as they used to, though, do they?", "It does look different. More broken up, in a way. Though, I don't think the street in front of our house has looked the same for more than two hours at a time either.", "Ugh. Enough reminiscing. What was the address my dad left, again?", "Well, when I worked with Tobenna, he had a workshop somewhere by these cliffs. Just north of the old castle, I think.", "Great. What are we waiting for, then? Let's go!", "I've got your back, Tess.", "Hey, I'm here for you, too, kiddo."]
@@ -711,7 +711,6 @@ position = Vector2(524.429, 601.429)
 scale = Vector2(3.5, 3.5)
 sprite_frames = ExtResource("4_e7cxh")
 animation = &"walk_jay_side"
-frame = 5
 
 [node name="Charlie" type="AnimatedSprite2D" parent="Characters"]
 position = Vector2(544, 607)

@@ -20,3 +20,8 @@ func _on_cutscene_finished():
 	disable_input = false
 	cutscene_triggered = true
 	get_tree().current_scene.get_node("AberrationEncounter").queue_free()
+
+func trigger_controls_menu():
+	disable_input = true
+	var menu = preload("res://scenes/menus/Controls.tscn").instantiate()
+	get_tree().current_scene.add_child(menu)

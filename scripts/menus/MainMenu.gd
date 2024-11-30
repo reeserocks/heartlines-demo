@@ -9,7 +9,8 @@ func _on_start_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/cutscenes/Start.tscn")
 
 func _on_controls_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/menus/Controls.tscn")
+	var menu = preload("res://scenes/menus/Controls.tscn").instantiate()
+	get_tree().current_scene.add_child(menu)
 
 func _on_quit_button_pressed() -> void:
 	get_tree().quit()
