@@ -3,6 +3,7 @@
 extends CharacterBody2D
 
 @export var speed = 30
+@export var max_distance_to_player = 150
 
 var health = 100
 var dead = false
@@ -16,15 +17,16 @@ func _physics_process(_delta):
 	if !dead:
 		$DetectionArea/CollisionShape2D.disabled = false
 		if player_body and player_near and !GameManager.cutscene_playing: 
-			await get_tree().create_timer(1).timeout
-			position += (player_body.position - position) / speed
-			$AnimatedSprite2D.play("move")
+			if player_body.global_position.distance_to(self.global_position) > max_distance_to_player:
+				position += (player_body.position - position) / speed
+				$AnimatedSprite2D.play("move")
+			else: 
+				$AnimatedSprite2D.play("idle")
 		else:
 			$AnimatedSprite2D.play("idle")
 	else:
 		$DetectionArea/CollisionShape2D.disabled = true
 		queue_free()
-
 
 func _on_detection_area_body_entered(body: Node2D):
 	if body.is_in_group("active"):
