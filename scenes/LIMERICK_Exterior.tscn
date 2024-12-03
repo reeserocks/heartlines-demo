@@ -15,7 +15,7 @@ resource_name = "limerickExt"
 texture = ExtResource("1_vp0fj")
 texture_region_size = Vector2i(4936, 3240)
 0:0/0 = 0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-2537.1, -199.404, -2166.58, -185.262, -2118.49, -80.6102, -1951.61, 29.6985, -1887.6, 252.63, -1756.45, 318.198, -1674.43, 425.678, -1442.5, 581.242, -1581.09, 844.286, -1547.15, 1013.99, -1586, 1077, -1986, 1079, -1986, 1239, -1354, 1245, -1244, 1245, -1124, 1179, -1052, 1099, -1148, 1075, -1222, 997, -1254, 921, -1256, 625, -1092, 691, -1074, 925, -970, 929, -984, 1073, -922, 1131, -790, 1287, -568, 1533, -39.5979, 1583.92, 825.901, 1476.44, 1549.98, 1261.48, 1800, 1091, 1854.25, 879.526, 1898, 709, 2524, 493, 2488, 1665, 452, 1647, -2592, 1631)
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-2537.1, -199.404, -2166.58, -185.262, -2118.49, -80.6102, -1951.61, 29.6985, -1887.6, 252.63, -1756.45, 318.198, -1674.43, 425.678, -1442.5, 581.242, -1581.09, 844.286, -1571.55, 951.48, -1514.53, 1015.62, -1992.05, 1022.75, -1986, 1239, -1354, 1245, -1244, 1245, -1124, 1179, -1052, 1099, -1148, 1075, -1222, 997, -1254, 921, -1256, 625, -1092, 691, -1074, 925, -970, 929, -984, 1073, -922, 1131, -790, 1287, -568, 1533, -39.5979, 1583.92, 825.901, 1476.44, 1549.98, 1261.48, 1800, 1091, 1854.25, 879.526, 1898, 709, 2524, 493, 2488, 1665, 452, 1647, -2592, 1631)
 0:0/0/physics_layer_0/polygon_1/points = PackedVector2Array(-2008, -553, -1878, -489, -1956, -411, -1944, -365, -1794, -295, -1348, -233, -1240, -209, -778, 97, -1062, 25, -1362, 43, -1446, 13, -1636, 27, -1788, -31, -1882, -129, -1944, -217)
 0:0/0/physics_layer_0/polygon_2/points = PackedVector2Array(-1980, -573, -1854, -585, -1904, -619, -1926, -669, -1970, -723, -2014, -735, -2060, -745, -2114, -799, -2162, -845, -2026, -811, -1960, -805, -1724, -801, -1614, -819, -1536, -845, -1478, -875, -1378, -977, -1440, -1007, -1419.32, -1181.14, -1364, -1647, -2522, -1689, -2498, -239, -2500, -207, -2414, -193, -2282, -275, -2352, -347, -1972, -351)
 0:0/0/physics_layer_0/polygon_3/points = PackedVector2Array(-370, 1221, -343, 1217.5, -344, 1114.5, -296, 1109.5, -297, 924.5, -405, 925.5, -406, 1112.5, -364, 1110.5)
@@ -52,33 +52,43 @@ position = Vector2(535, -569)
 position = Vector2(1199, -1543)
 
 [node name="CharacterManager" parent="." instance=ExtResource("3_uatgl")]
+position = Vector2(0, 0)
 
 [node name="Tree" parent="." instance=ExtResource("4_lf88e")]
 position = Vector2(925, -331)
+scale = Vector2(1, 1)
 
 [node name="Tree3" parent="." instance=ExtResource("4_lf88e")]
 position = Vector2(197, -963)
+scale = Vector2(1, 1)
 
 [node name="Tree2" parent="." instance=ExtResource("4_lf88e")]
 position = Vector2(34, -921)
+scale = Vector2(1, 1)
 
 [node name="Tree4" parent="." instance=ExtResource("4_lf88e")]
 position = Vector2(396, -845)
+scale = Vector2(1, 1)
 
 [node name="Tree5" parent="." instance=ExtResource("4_lf88e")]
 position = Vector2(823, -1403)
+scale = Vector2(1, 1)
 
 [node name="Tree6" parent="." instance=ExtResource("4_lf88e")]
 position = Vector2(2942, -1035)
+scale = Vector2(1, 1)
 
 [node name="Tree7" parent="." instance=ExtResource("4_lf88e")]
 position = Vector2(312, -2138)
+scale = Vector2(1, 1)
 
 [node name="Tree10" parent="." instance=ExtResource("4_lf88e")]
 position = Vector2(4490, 96)
+scale = Vector2(1, 1)
 
 [node name="Tree9" parent="." instance=ExtResource("4_lf88e")]
 position = Vector2(4315, 270)
+scale = Vector2(1, 1)
 
 [node name="Cow" parent="." instance=ExtResource("5_srqmg")]
 position = Vector2(3527, -1401)

@@ -390,7 +390,7 @@ tracks/5/keys = {
 "times": PackedFloat32Array(4.6, 5.83333),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(544, 607), Vector2(750, 607)]
+"values": [Vector2(544, 570), Vector2(735, 570)]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
@@ -558,7 +558,7 @@ tracks/19/keys = {
 "times": PackedFloat32Array(9.2, 9.3667, 9.53333, 21.4667, 21.6334, 21.8),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(3.5, 3.5), Vector2(3.7, 3.7), Vector2(3.5, 3.5), Vector2(3.5, 3.5), Vector2(3.7, 3.7), Vector2(3.5, 3.5)]
+"values": [Vector2(1.4, 1.4), Vector2(1.6, 1.6), Vector2(1.4, 1.4), Vector2(1.4, 1.4), Vector2(1.6, 1.6), Vector2(1.4, 1.4)]
 }
 tracks/20/type = "method"
 tracks/20/imported = false
@@ -608,7 +608,7 @@ tracks/21/keys = {
 "times": PackedFloat32Array(13.8333, 14, 14.1667, 18.8667, 19.0334, 19.2),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(3.5, 3.5), Vector2(3.7, 3.7), Vector2(3.5, 3.5), Vector2(3.5, 3.5), Vector2(3.7, 3.7), Vector2(3.5, 3.5)]
+"values": [Vector2(1.3, 1.3), Vector2(1.5, 1.5), Vector2(1.3, 1.3), Vector2(1.3, 1.3), Vector2(1.5, 1.5), Vector2(1.3, 1.3)]
 }
 tracks/22/type = "value"
 tracks/22/imported = false
@@ -702,7 +702,7 @@ autoplay = "Start"
 
 [node name="Tess" type="AnimatedSprite2D" parent="Characters"]
 position = Vector2(524.429, 601.429)
-scale = Vector2(3.5, 3.5)
+scale = Vector2(1.3, 1.3)
 sprite_frames = ExtResource("4_e7cxh")
 animation = &"walk_tess_side"
 
@@ -711,10 +711,11 @@ position = Vector2(524.429, 601.429)
 scale = Vector2(3.5, 3.5)
 sprite_frames = ExtResource("4_e7cxh")
 animation = &"walk_jay_side"
+frame = 5
 
 [node name="Charlie" type="AnimatedSprite2D" parent="Characters"]
 position = Vector2(544, 607)
-scale = Vector2(3.5, 3.5)
+scale = Vector2(1.4, 1.4)
 sprite_frames = ExtResource("4_e7cxh")
 animation = &"walk_charlie_side"
 

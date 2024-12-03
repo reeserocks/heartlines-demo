@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bldn7fkggpdgb"]
+[gd_scene load_steps=16 format=3 uid="uid://bldn7fkggpdgb"]
 
 [ext_resource type="Script" path="res://scripts/CharacterManager.gd" id="1_yd0rh"]
 [ext_resource type="Script" path="res://scripts/characters/Tess.gd" id="2_y5lj4"]
@@ -12,7 +12,12 @@
 [ext_resource type="Texture2D" uid="uid://bp36qmygp0moa" path="res://assets/MyAssets/UI/dialogBox.png" id="17_h7g7y"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_iflvh"]
-height = 32.0
+radius = 31.4286
+height = 184.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8d52o"]
+radius = 24.2858
+height = 161.429
 
 [sub_resource type="Animation" id="Animation_qn3k5"]
 length = 0.001
@@ -53,23 +58,23 @@ _data = {
 [node name="CharacterManager" type="Node2D"]
 position = Vector2(3, 1)
 script = ExtResource("1_yd0rh")
-speed = 300
+speed = 250
 ai_speed = 175
 
 [node name="Tess" type="CharacterBody2D" parent="." groups=["npc"]]
 position = Vector2(850, 601.429)
-scale = Vector2(3.5, 3.5)
 script = ExtResource("2_y5lj4")
 character_name = "tess"
 inv = ExtResource("3_0x1ot")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Tess"]
 position = Vector2(9.42857, -2.69401)
+scale = Vector2(1.3, 1.3)
 sprite_frames = ExtResource("4_ao5ld")
-animation = &"walk_tess_down"
+animation = &"idle_tess_down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Tess"]
-position = Vector2(0.428566, 0.42857)
+position = Vector2(11, -7.42903)
 shape = SubResource("CapsuleShape2D_iflvh")
 
 [node name="Camera2D" type="Camera2D" parent="Tess"]
@@ -80,21 +85,21 @@ limit_bottom = 1080
 editor_draw_limits = true
 
 [node name="RayCast2D" type="RayCast2D" parent="Tess"]
+position = Vector2(11, -1.42902)
+scale = Vector2(3.5, 3.5)
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="Tess"]
 
 [node name="Jay" type="CharacterBody2D" parent="." groups=["npc"]]
 position = Vector2(600, 601.429)
-scale = Vector2(3.5, 3.5)
 script = ExtResource("12_noj8i")
 character_name = "jay"
 inv = ExtResource("3_0x1ot")
-metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Jay"]
 position = Vector2(5.23158e-05, -3.14282)
 sprite_frames = ExtResource("4_ao5ld")
-animation = &"walk_jay_up"
+animation = &"idle_jay_down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Jay"]
 position = Vector2(-0.999948, -0.142822)
@@ -113,23 +118,19 @@ editor_draw_limits = true
 
 [node name="Charlie" type="CharacterBody2D" parent="." groups=["npc"]]
 position = Vector2(750, 601.429)
-scale = Vector2(3.5, 3.5)
+scale = Vector2(1.4, 1.4)
 script = ExtResource("13_nyh2o")
 character_name = "charlie"
 inv = ExtResource("3_0x1ot")
-metadata/_edit_group_ = true
 
 [node name="Marker2D" type="Marker2D" parent="Charlie"]
 position = Vector2(-9.42857, -0.122576)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Charlie"]
-position = Vector2(-8.28571, -0.122576)
+position = Vector2(-8.57144, -14.5921)
 sprite_frames = ExtResource("4_ao5ld")
-animation = &"death"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Charlie"]
-position = Vector2(-9.14286, -0.857143)
-shape = SubResource("CapsuleShape2D_iflvh")
+animation = &"idle_charlie_down"
+frame_progress = 0.606506
 
 [node name="Camera2D" type="Camera2D" parent="Charlie"]
 limit_left = 0
@@ -140,10 +141,16 @@ editor_draw_limits = true
 
 [node name="RayCast2D" type="RayCast2D" parent="Charlie"]
 position = Vector2(-9.71428, -0.122576)
+scale = Vector2(2.5, 2.5)
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="Charlie"]
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Charlie"]
+position = Vector2(-7.85714, -16.0207)
+shape = SubResource("CapsuleShape2D_8d52o")
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="Inv_UI" parent="CanvasLayer" instance=ExtResource("15_kv2v1")]
 anchors_preset = 8
@@ -160,6 +167,7 @@ grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="DialogPopup" type="CanvasLayer" parent="CanvasLayer"]
+visible = false
 script = ExtResource("16_mexjo")
 
 [node name="Dialog" type="NinePatchRect" parent="CanvasLayer/DialogPopup"]

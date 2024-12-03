@@ -5,7 +5,7 @@ func _ready():
 	add_to_group("active")
 
 func use_ability():
-	animation_sprite.play("ability_tess")
+	pass
 
 func set_dialogue(active_character):
 	dialogues = {

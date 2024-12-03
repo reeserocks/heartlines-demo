@@ -185,7 +185,7 @@ tracks/7/keys = {
 "times": PackedFloat32Array(2.5, 2.6, 2.7, 10.8667, 10.9667, 11.0667, 14.9, 15, 15.1, 19.7667, 19.8667, 19.9667, 25.4333, 25.5333, 25.6333, 30.6, 30.7, 30.8),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(3.5, 3.5), Vector2(3.7, 3.7), Vector2(3.5, 3.5), Vector2(3.5, 3.5), Vector2(3.7, 3.7), Vector2(3.5, 3.5), Vector2(3.5, 3.5), Vector2(3.7, 3.7), Vector2(3.5, 3.5), Vector2(3.5, 3.5), Vector2(3.7, 3.7), Vector2(3.5, 3.5), Vector2(3.5, 3.5), Vector2(3.7, 3.7), Vector2(3.5, 3.5), Vector2(3.5, 3.5), Vector2(3.7, 3.7), Vector2(3.5, 3.5)]
+"values": [Vector2(1.4, 1.4), Vector2(1.6, 1.6), Vector2(1.4, 1.4), Vector2(1.4, 1.4), Vector2(1.6, 1.6), Vector2(1.4, 1.4), Vector2(1.4, 1.4), Vector2(1.6, 1.6), Vector2(1.4, 1.4), Vector2(1.4, 1.4), Vector2(1.6, 1.6), Vector2(1.4, 1.4), Vector2(2.4, 2.4), Vector2(1.6, 1.6), Vector2(1.4, 1.4), Vector2(1.4, 1.4), Vector2(1.6, 1.6), Vector2(1.4, 1.4)]
 }
 tracks/8/type = "value"
 tracks/8/imported = false
@@ -197,7 +197,7 @@ tracks/8/keys = {
 "times": PackedFloat32Array(9.03333, 9.13333, 9.23333, 15.8333, 15.9333, 16.0333, 27.3, 27.4, 27.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(3.5, 3.5), Vector2(3.7, 3.7), Vector2(3.5, 3.5), Vector2(3.5, 3.5), Vector2(3.7, 3.7), Vector2(3.5, 3.5), Vector2(3.5, 3.5), Vector2(3.7, 3.7), Vector2(3.5, 3.5)]
+"values": [Vector2(1.3, 1.3), Vector2(1.5, 1.5), Vector2(1.3, 1.3), Vector2(1.3, 1.3), Vector2(1.5, 1.5), Vector2(1.3, 1.3), Vector2(1.3, 1.3), Vector2(1.5, 1.5), Vector2(1.3, 1.3)]
 }
 tracks/9/type = "value"
 tracks/9/imported = false
@@ -476,7 +476,7 @@ texture = ExtResource("4_nif4p")
 
 [node name="Tess" type="AnimatedSprite2D" parent="Characters"]
 position = Vector2(1375, 448)
-scale = Vector2(3.5, 3.5)
+scale = Vector2(1.3, 1.3)
 sprite_frames = ExtResource("7_fspw3")
 animation = &"idle_tess_side"
 
@@ -488,7 +488,7 @@ animation = &"idle_jay_up"
 
 [node name="Charlie" type="AnimatedSprite2D" parent="Characters"]
 position = Vector2(1453, 605)
-scale = Vector2(3.5, 3.5)
+scale = Vector2(1.4, 1.4)
 sprite_frames = ExtResource("7_fspw3")
 animation = &"walk_charlie_side"
 
