@@ -53,15 +53,34 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -395.0
-offset_top = -194.0
-offset_right = 431.0
-offset_bottom = -57.0
+offset_left = -873.0
+offset_top = -201.0
+offset_right = -47.0
+offset_bottom = -64.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_fonts/font = ExtResource("2_dk5gw")
 theme_override_font_sizes/font_size = 45
-text = "Back"
+text = "Resume Game"
+metadata/_edit_use_anchors_ = true
+
+[node name="QuitButtonReal" type="Button" parent="CanvasLayer"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 45.0
+offset_top = -201.0
+offset_right = 871.0
+offset_bottom = -64.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("2_dk5gw")
+theme_override_font_sizes/font_size = 45
+text = "To Main Menu"
 metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="CanvasLayer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/QuitButtonReal" to="." method="_on_quit_button_real_pressed"]
+[connection signal="pressed" from="CanvasLayer/QuitButtonReal" to="." method="_on_quit_button_pressed"]

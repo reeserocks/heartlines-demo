@@ -1,6 +1,6 @@
 [gd_resource type="SpriteFrames" load_steps=61 format=3 uid="uid://yush2j8vbbv8"]
 
-[ext_resource type="Texture2D" uid="uid://beqpup1arcn42" path="res://assets/MyAssets/Char Spritesheets/charlie.png" id="1_8ubhw"]
+[ext_resource type="Texture2D" uid="uid://blfwqjg6qh0j6" path="res://assets/MyAssets/Char Spritesheets/charlie.png" id="1_8ubhw"]
 [ext_resource type="Texture2D" uid="uid://mc05hloe718l" path="res://assets/MyAssets/Char Spritesheets/jay.png" id="2_v7uc1"]
 [ext_resource type="Texture2D" uid="uid://cg24k2falxt4t" path="res://assets/MyAssets/Char Spritesheets/tess.png" id="7_incth"]
 

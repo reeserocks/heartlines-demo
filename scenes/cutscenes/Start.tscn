@@ -759,6 +759,7 @@ position = Vector2(524.429, 601.429)
 scale = Vector2(3.5, 3.5)
 sprite_frames = ExtResource("4_e7cxh")
 animation = &"walk_jay_side"
+frame = 3
 
 [node name="Charlie" type="AnimatedSprite2D" parent="Characters"]
 position = Vector2(544, 607)
