@@ -27,7 +27,7 @@ resource_name = "workshopFloor"
 texture = ExtResource("1_kqp6a")
 texture_region_size = Vector2i(1920, 1929)
 0:0/0 = 0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-972, 1078, -256, 1062, -700, 890, -868, 884, -878, 210, 566, 208, 568, -114, 198, -116, 202, -590, 882, -586, 886, -120, 742, -120, 744, 202, 886, 206, 888, 894, -442, 894, -440, 370, -496, 368, -500, 898, -522, 888, -764, 1016, 1048, 1066, 1004, -1024, -1036, -1028)
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-972, 1078, -256, 1062, -700, 890, -868, 884, -878, 210, 566, 208, 568, -114, 198, -116, 202, -590, 882, -586, 886, -120, 742, -120, 744, 202, 886, 206, 888, 894, -442, 894, -436.992, 507.703, -502.046, 504.874, -500, 898, -522, 888, -764, 1016, 1048, 1066, 1004, -1024, -1036, -1028)
 
 [sub_resource type="TileSet" id="TileSet_asf7s"]
 physics_layer_0/collision_layer = 1
@@ -110,9 +110,10 @@ position = Vector2(332, 1089)
 shape = SubResource("CircleShape2D_1u5ah")
 
 [node name="CharacterManager" parent="." instance=ExtResource("2_j4x8u")]
-position = Vector2(-376, 416)
+position = Vector2(-407, 323)
 
 [node name="Room1_Lights" type="ColorRect" parent="."]
+visible = false
 offset_left = 506.0
 offset_top = 60.0
 offset_right = 1853.0
@@ -120,6 +121,7 @@ offset_bottom = 1026.0
 color = Color(0, 0, 0, 1)
 
 [node name="Room2_Lights" type="ColorRect" parent="."]
+visible = false
 offset_left = 1146.0
 offset_top = -724.0
 offset_right = 1853.0

@@ -10,7 +10,7 @@
 size = Vector2(238, 194.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f5req"]
-size = Vector2(238, 516)
+size = Vector2(238, 460)
 
 [sub_resource type="Animation" id="Animation_28d4q"]
 length = 0.001
@@ -66,7 +66,7 @@ shape = SubResource("RectangleShape2D_u5ynt")
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, 8)
+position = Vector2(0, 10)
 shape = SubResource("RectangleShape2D_f5req")
 
 [node name="LongerDescPopup" type="CanvasLayer" parent="."]

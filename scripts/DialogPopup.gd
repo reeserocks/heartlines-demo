@@ -29,7 +29,7 @@ func close():
 	self.visible = false
 	npc = null
 
-func _on_animation_player_animation_finished():
+func _on_animation_player_animation_finished(anim_name: StringName):
 	set_process_input(true)
 
 func _input(event):

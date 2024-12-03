@@ -221,7 +221,7 @@ tracks/10/keys = {
 "times": PackedFloat32Array(0, 23.3667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [&"walk_charlie_side", &"idle_charlie_down"]
+"values": [&"idle_charlie_side", &"idle_charlie_down"]
 }
 tracks/11/type = "value"
 tracks/11/imported = false

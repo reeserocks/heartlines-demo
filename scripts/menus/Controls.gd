@@ -8,7 +8,6 @@ func _ready():
 
 func _on_quit_button_pressed():
 	GameManager.disable_input = false
-	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	queue_free()
 
 func _on_quit_button_real_pressed():

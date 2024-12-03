@@ -22,7 +22,7 @@ func _on_body_exited(body: Node2D) -> void:
 		player_body = null
 
 func _process(delta: float):
-	if player_body and player_near and Input.is_action_just_pressed("ui_interact"):
+	if player_body and player_near and Input.is_action_just_pressed("ui_interact") and !locked_door.pliers_collected:
 		player_body.collect(item)
 		locked_door.pliers_collected = true
 		queue_free()

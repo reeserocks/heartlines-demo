@@ -1,5 +1,8 @@
 extends "res://scripts/characters/BaseCharacter.gd"
 
+func _ready():
+	add_to_group("npc")
+
 func use_ability():
 	pass
 

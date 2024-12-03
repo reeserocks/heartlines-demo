@@ -1,5 +1,8 @@
 extends "res://scripts/characters/BaseCharacter.gd"
 
+func _ready():
+	add_to_group("npc")
+
 func set_dialogue(active_character):
 	dialogues = {
 		"Jay": [

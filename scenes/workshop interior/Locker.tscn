@@ -89,7 +89,7 @@ texture = ExtResource("1_pgatt")
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(44, -279)
+position = Vector2(42, -326)
 shape = SubResource("CapsuleShape2D_jqhmj")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
