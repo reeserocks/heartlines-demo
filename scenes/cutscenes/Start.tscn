@@ -316,6 +316,30 @@ tracks/23/keys = {
 "update": 0,
 "values": [Vector2(216.4, 154.2)]
 }
+tracks/24/type = "value"
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/path = NodePath("Message3:visible_ratio")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/25/type = "value"
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/path = NodePath("Message3:position")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(410, 991)]
+}
 
 [sub_resource type="Animation" id="Animation_ndt6x"]
 resource_name = "Start"
@@ -390,7 +414,7 @@ tracks/5/keys = {
 "times": PackedFloat32Array(4.6, 5.83333),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(544, 570), Vector2(735, 570)]
+"values": [Vector2(544, 570), Vector2(720, 570)]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
@@ -414,7 +438,7 @@ tracks/7/keys = {
 "times": PackedFloat32Array(5.43333, 6.3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(524.429, 601.429), Vector2(600, 601.429)]
+"values": [Vector2(524.429, 570), Vector2(600, 570)]
 }
 tracks/8/type = "value"
 tracks/8/imported = false
@@ -546,7 +570,7 @@ tracks/18/keys = {
 "times": PackedFloat32Array(6.89997, 7.06667, 7.2333, 16.6667, 16.8334, 17, 23.9, 24.0667, 24.2333),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(3.5, 3.5), Vector2(3.7, 3.7), Vector2(3.5, 3.5), Vector2(3.5, 3.5), Vector2(3.7, 3.7), Vector2(3.5, 3.5), Vector2(3.5, 3.5), Vector2(3.7, 3.7), Vector2(3.5, 3.5)]
+"values": [Vector2(1.4, 1.4), Vector2(1.6, 1.6), Vector2(1.4, 1.4), Vector2(1.4, 1.4), Vector2(1.6, 1.6), Vector2(1.4, 1.4), Vector2(1.4, 1.4), Vector2(1.6, 1.6), Vector2(1.4, 1.4)]
 }
 tracks/19/type = "value"
 tracks/19/imported = false
@@ -668,7 +692,31 @@ tracks/26/keys = {
 "times": PackedFloat32Array(28, 28.6667, 31),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(216.4, 154.2), Vector2(216.4, 154.2), Vector2(216.4, -800)]
+"values": [Vector2(216.4, 154.2), Vector2(216.4, 154.2), Vector2(216.4, -840)]
+}
+tracks/27/type = "value"
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/path = NodePath("Message3:visible_ratio")
+tracks/27/interp = 1
+tracks/27/loop_wrap = true
+tracks/27/keys = {
+"times": PackedFloat32Array(28.1333, 28.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/28/type = "value"
+tracks/28/imported = false
+tracks/28/enabled = true
+tracks/28/path = NodePath("Message3:position")
+tracks/28/interp = 1
+tracks/28/loop_wrap = true
+tracks/28/keys = {
+"times": PackedFloat32Array(28.6667, 31),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(410, 991), Vector2(410, -82)]
 }
 
 [sub_resource type="Animation" id="Animation_hanut"]
@@ -711,7 +759,6 @@ position = Vector2(524.429, 601.429)
 scale = Vector2(3.5, 3.5)
 sprite_frames = ExtResource("4_e7cxh")
 animation = &"walk_jay_side"
-frame = 5
 
 [node name="Charlie" type="AnimatedSprite2D" parent="Characters"]
 position = Vector2(544, 607)
@@ -859,6 +906,27 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("15_dcs7n")
 expand_mode = 1
+metadata/_edit_lock_ = true
+
+[node name="Message3" type="Label" parent="."]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.931
+anchor_right = 0.5
+anchor_bottom = 0.987
+offset_left = -550.0
+offset_top = -14.48
+offset_right = 550.0
+offset_bottom = 0.039917
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("14_jwqjl")
+theme_override_font_sizes/font_size = 45
+text = "Heaven Beside You: Limerick (Demo)"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, 540)

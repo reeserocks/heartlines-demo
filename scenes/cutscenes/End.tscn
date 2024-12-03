@@ -24,7 +24,7 @@ sources/0 = SubResource("TileSetAtlasSource_d622q")
 
 [sub_resource type="Animation" id="Animation_o7co0"]
 resource_name = "End"
-length = 39.0
+length = 44.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -96,7 +96,7 @@ tracks/5/keys = {
 "times": PackedFloat32Array(1, 1.1, 1.2, 4.16667, 4.26667, 4.36667, 6.3, 6.4, 6.5, 12.3667, 12.4667, 12.5667),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(3.5, 3.5), Vector2(3.7, 3.7), Vector2(3.5, 3.5), Vector2(3.5, 3.5), Vector2(3.7, 3.7), Vector2(3.5, 3.5), Vector2(3.5, 3.5), Vector2(3.7, 3.7), Vector2(3.5, 3.5), Vector2(3.5, 3.5), Vector2(3.7, 3.7), Vector2(3.5, 3.5)]
+"values": [Vector2(1.4, 1.4), Vector2(1.6, 1.6), Vector2(1.4, 1.4), Vector2(1.4, 1.4), Vector2(1.6, 1.6), Vector2(1.4, 1.4), Vector2(1.4, 1.4), Vector2(1.6, 1.6), Vector2(1.4, 1.4), Vector2(1.4, 1.4), Vector2(1.6, 1.6), Vector2(1.4, 1.4)]
 }
 tracks/6/type = "method"
 tracks/6/imported = false
@@ -105,7 +105,7 @@ tracks/6/path = NodePath(".")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(2.1, 3.8333, 5.9667, 8.6, 10.5, 12, 13.6, 14.5, 15.5, 16.5, 18, 19.5, 21, 23.0667, 25.1, 27, 28.5, 30.2667, 31.9865, 33, 34.6, 39),
+"times": PackedFloat32Array(2.1, 3.8333, 5.9667, 8.6, 10.5, 12, 13.6, 14.5, 15.5, 16.5, 18, 19.5, 21, 23.0667, 25.1, 27, 28.5, 30.2667, 31.9865, 33, 34.6, 43.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "values": [{
 "args": [],
@@ -185,7 +185,7 @@ tracks/7/keys = {
 "times": PackedFloat32Array(2.5, 2.6, 2.7, 10.8667, 10.9667, 11.0667, 14.9, 15, 15.1, 19.7667, 19.8667, 19.9667, 25.4333, 25.5333, 25.6333, 30.6, 30.7, 30.8),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(1.4, 1.4), Vector2(1.6, 1.6), Vector2(1.4, 1.4), Vector2(1.4, 1.4), Vector2(1.6, 1.6), Vector2(1.4, 1.4), Vector2(1.4, 1.4), Vector2(1.6, 1.6), Vector2(1.4, 1.4), Vector2(1.4, 1.4), Vector2(1.6, 1.6), Vector2(1.4, 1.4), Vector2(2.4, 2.4), Vector2(1.6, 1.6), Vector2(1.4, 1.4), Vector2(1.4, 1.4), Vector2(1.6, 1.6), Vector2(1.4, 1.4)]
+"values": [Vector2(1.4, 1.4), Vector2(1.6, 1.6), Vector2(1.4, 1.4), Vector2(1.4, 1.4), Vector2(1.6, 1.6), Vector2(1.4, 1.4), Vector2(1.4, 1.4), Vector2(1.6, 1.6), Vector2(1.4, 1.4), Vector2(1.4, 1.4), Vector2(1.6, 1.6), Vector2(1.4, 1.4), Vector2(1.4, 1.4), Vector2(1.6, 1.6), Vector2(1.4, 1.4), Vector2(1.4, 1.4), Vector2(1.6, 1.6), Vector2(1.4, 1.4)]
 }
 tracks/8/type = "value"
 tracks/8/imported = false
@@ -221,7 +221,7 @@ tracks/10/keys = {
 "times": PackedFloat32Array(0, 23.3667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [&"walk_charlie_side", &"walk_charlie_down"]
+"values": [&"walk_charlie_side", &"idle_charlie_down"]
 }
 tracks/11/type = "value"
 tracks/11/imported = false
@@ -278,10 +278,22 @@ tracks/15/path = NodePath("Message2:visible_ratio")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/keys = {
-"times": PackedFloat32Array(0, 35.6667, 36.8333),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 35.6667, 36.8333, 37.6333, 37.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [0.0, 0.0, 1.0]
+"values": [0.0, 0.0, 1.0, 1.0, 0.0]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("Credit:visible_ratio")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(37.7, 41.8, 42.6333, 42.7333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 1.0, 0.0]
 }
 
 [sub_resource type="Animation" id="Animation_8l3c0"]
@@ -430,6 +442,18 @@ tracks/11/keys = {
 "update": 0,
 "values": [1.0]
 }
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Credit:visible_ratio")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ym4pd"]
 _data = {
@@ -458,7 +482,7 @@ texture = ExtResource("4_guysg")
 [node name="Room1_Lights" type="ColorRect" parent="Map"]
 offset_left = 74.0
 offset_top = 60.0
-offset_right = 1847.0
+offset_right = 1857.0
 offset_bottom = 1098.0
 color = Color(0, 0, 0, 1)
 
@@ -590,6 +614,34 @@ grow_vertical = 2
 theme_override_fonts/font = ExtResource("17_3a1w8")
 theme_override_font_sizes/font_size = 45
 text = "To be continued..."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Credit" type="Label" parent="."]
+custom_minimum_size = Vector2(1100, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -22.5
+offset_right = 0.5
+offset_bottom = 22.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("17_3a1w8")
+theme_override_font_sizes/font_size = 45
+text = "A game by Reese Hausman
+
+With help from Dr. Geoffrey Long
+
+Tutorials followed by:
+DevWorm, Christinec_Dev
+
+Fonts from Christinec_Dev"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2

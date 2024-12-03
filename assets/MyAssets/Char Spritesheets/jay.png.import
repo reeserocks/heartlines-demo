@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://blfwqjg6qh0j6"
-path="res://.godot/imported/charlie.png-599c9a173f9e593b930367a53ddba75d.ctex"
+uid="uid://mc05hloe718l"
+path="res://.godot/imported/jay.png-41d8d3cbba28c874723d3a08ef94588e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/MyAssets/Char Spritesheets/charlie.png"
-dest_files=["res://.godot/imported/charlie.png-599c9a173f9e593b930367a53ddba75d.ctex"]
+source_file="res://assets/MyAssets/Char Spritesheets/jay.png"
+dest_files=["res://.godot/imported/jay.png-41d8d3cbba28c874723d3a08ef94588e.ctex"]
 
 [params]
 
