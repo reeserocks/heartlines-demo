@@ -83,4 +83,3 @@ metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="CanvasLayer/QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/QuitButtonReal" to="." method="_on_quit_button_real_pressed"]
-[connection signal="pressed" from="CanvasLayer/QuitButtonReal" to="." method="_on_quit_button_pressed"]
