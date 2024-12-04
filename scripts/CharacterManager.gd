@@ -26,7 +26,7 @@ var current_state: CharacterState = CharacterState.TESS
 @export var ai_move_chance = 0.5  # 50% chance to move
 @export var ai_decision_interval = 2.0  # Decide every 2 seconds
 @export var min_separation_radius = 175.0  # Minimum distance between characters
-@export var max_ai_distance_from_player = 400.0  # Max distance the AI can be from the active player
+@export var max_ai_distance_from_player = 200.0  # Max distance the AI can be from the active player
 
 # ACTIVE AND INACTIVE CHARACTERS
 var active_character
@@ -217,7 +217,7 @@ func _move_away_from_active_character(character, delta):
 	
 	# Move the NPC in the opposite direction
 	var navigation_agent = _get_navigation_agent(character)
-	navigation_agent.target_position = character.global_position + move_direction * 100  # Move away by 100 units
+	navigation_agent.target_position = character.global_position + move_direction * 50  # Move away by 50 units
 
 	# Move the character to the new position
 	if not navigation_agent.is_navigation_finished():
